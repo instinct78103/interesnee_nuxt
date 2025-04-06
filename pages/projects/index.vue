@@ -2,6 +2,8 @@
 import Hero from '@/components/Hero.vue';
 import ProjectsCustomers from '@/components/projects/ProjectsCustomers.vue';
 import ProjectsList from '@/components/projects/ProjectsList.vue';
+
+useHead({ title: 'Очень интересно - Наши проекты' });
 </script>
 
 <template>
