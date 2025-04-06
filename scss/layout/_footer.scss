@@ -1,0 +1,192 @@
+.site-footer {
+    width: 100%;
+    background: var(--gray-dark);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+
+    > .footer-container {
+        max-width: 1240px;
+        width: calc(100% - 80px);
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column wrap;
+
+        @media (width >= 1024px) {
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        .div-heading {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .office-locations {
+            width: 100%;
+
+            > p {
+                margin-bottom: 20px;
+            }
+
+            @media(width < 1024px) {
+                margin-bottom: 40px;
+            }
+
+            @media (width >= 1024px) {
+                width: calc(100% * 2 / 3 - 1%);
+            }
+
+            > .scroll-snap {
+                display: grid;
+                padding-left: 0;
+
+                @media (width < 768px) {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    scroll-snap-type: x mandatory;
+                    overflow-x: auto;
+                    scroll-behavior: smooth;
+                    scrollbar-width: none; // Hide scrollbar in Firefox
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                @media (width >= 768px) {
+                    grid-template-columns: repeat(2, fit-content(33%));
+                    justify-content: space-evenly;
+                    grid-gap: 40px;
+                }
+
+                @media (width >= 1024px) {
+                    grid-template-columns: repeat(3, 200px);
+                    grid-template-rows: repeat(2, fit-content(100%));
+                    justify-content: space-between;
+                }
+
+                > li {
+                    text-align: left;
+                    list-style-type: none;
+                    line-height: 1.2;
+                    text-wrap: balance;
+
+                    @media (width < 768px) {
+                        min-width: 100%;
+                        scroll-snap-stop: always;
+                        scroll-snap-align: center;
+                    }
+
+                    @media(width < 1024px) {
+                        text-align: center;
+                    }
+
+                    p {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        font-size: 14px;
+
+                        @media(width < 1024px) {
+                            justify-content: center;
+                        }
+                    }
+
+                    a {
+                        color: #fff;
+                        font-size: 14px;
+                    }
+
+                    .flag {
+                        display: inline-block;
+                        width: 25px;
+                        height: 15px;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin: 0 10px 0 0;
+                        padding: 0;
+
+                        $flags: (
+                            ru,
+                            vn,
+                            kz,
+                            //us
+                        );
+
+                        @each $name in $flags {
+                            &.#{$name} {
+                                background-image: url(https://blog.interesnee.ru/wp-content/themes/interesnee/project/assets/icons/flag-#{$name}.svg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .social-links {
+            @media (width >= 1024px) {
+                width: calc(100% / 3 - 1%);
+            }
+
+            .div-heading {
+                @media(width < 1024px) {
+                    display: none;
+                }
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+                justify-content: center;
+                padding-left: 0;
+
+                > li {
+                    margin: 0 10px;
+                    display: inline-flex;
+
+                    a {
+                        display: inline-flex;
+                    }
+
+                    svg {
+                        fill: #f75050;
+                        transition: fill 0.3s;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            width: 100%;
+            display: flex;
+            margin-top: 3vw;
+            font-size: 14px;
+
+            p {
+                color: #fff;
+            }
+
+            @media (width >= 1024px) {
+                margin-top: 25px;
+                justify-content: space-between;
+            }
+
+            @media(width < 1024px) {
+                justify-content: center;
+
+                .copyright {
+                    display: none;
+                }
+            }
+
+            .policy {
+                text-wrap: balance;
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

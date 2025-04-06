@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-display: swap;
+    src: url('@/assets/fonts/OpenSans.woff2');
+}
+
+//'phone': 480px,
+//'tablet': 768px,
+//'desktop': 1024px,
+//'desktop-lg': 1200px,
+//'desktop-xlg': 1440px
+
+:root {
+    --blue-deep: #075eab;
+    --blue: #2e7bab;
+    --container-max-width: 1440px;
+    --dots-active-color: #3fa2f7;
+    --dots-color: #d8d8d8;
+    --gray-2: #d4d4d4;
+    --gray-3: #979797;
+    --gray-4: #ccc;
+    --gray-6: #343434;
+    --gray-7: #eee;
+    --gray-dark: #2e2e2e;
+    --gray-transparent: rgba(31, 45, 61, 0.5);
+    --gray: #f0f0f0;
+    --grid-gutter: clamp(10px, 6vw, 15px);
+    --red-dark: #931314;
+    --red-light: #f75050;
+    --red-transparent: rgb(from var(--red) r g b / 0.89);
+    --red: #b71c1c;
+    --white-gray: #f7f7f7
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-size: 16px;
+    font-family: Open Sans, sans-serif;
+    color: #222;
+    text-rendering: optimizeSpeed;
+
+    &:has(dialog[open]) {
+        overflow: hidden;
+    }
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.v-lazy-image,
+.v-lazy-image img {
+    transition: opacity 0.2s ease-in-out;
+    transform: translateZ(0);
+    will-change: contents;
+    opacity: 0;
+}
+
+.v-lazy-image-loaded {
+    opacity: 1;
+}

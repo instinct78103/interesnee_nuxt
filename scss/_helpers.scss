@@ -1,0 +1,100 @@
+%container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: clamp(10px, 6vw, 15px);
+}
+
+%content {
+    margin: 0 auto;
+    max-width: 992px;
+}
+
+%section {
+    position: relative;
+    padding-block: clamp(40px, 6vw, 90px);
+}
+
+%section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: block;
+    width: calc(100% - 30px);
+    max-width: 1280px;
+    height: 1px;
+    background-color: var(--gray-4);
+
+    @media(width <= 480px) {
+        display: none;
+    }
+}
+
+%heading {
+    color: var(--red);
+    font-size: clamp(25px, 4vw, 46px);
+    line-height: 1.25;
+    font-weight: 400;
+    margin-block: 0 55px;
+    text-wrap: balance;
+
+    @media(width < 768px) {
+        font-weight: 600;
+    }
+}
+
+%sectionTitle {
+    font-size: clamp(25px, 4vw, 46px);
+    line-height: 1.25;
+    font-weight: 400;
+    color: var(--red);
+
+    @media(width < 481px) {
+        font-weight: 600;
+    }
+}
+
+%button {
+    --btn-bg-color: var(--red-light);
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 15px 30px;
+    border: 0;
+    border-radius: 22.5px;
+    outline: none;
+    background-color: var(--btn-bg-color);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    text-decoration: none;
+    text-wrap: balance;
+
+    &:hover {
+        --btn-bg-color: #f51f1f;
+    }
+}
+
+%buttonWhite {
+    background-color: #fff;
+    color: var(--red);
+}
+
+%hoverBlock {
+    transition: all 0.8s cubic-bezier(0, 0, 0, 1);
+    will-change: transform;
+
+    img {
+        will-change: transform;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

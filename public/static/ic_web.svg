@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="73px" viewBox="0 0 64 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_web</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="31.7135628 0 63.3234901 18.25 63.3234901 54.75 31.7135628 73 0.103635607 54.75 0.103635607 18.25"></polygon>
+    </defs>
+    <g id="Element-Sheet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-263.000000, -123.000000)">
+        <g id="ic_web" transform="translate(263.000000, 123.000000)">
+            <g id="Polygon">
+                <use fill-opacity="0.297129755" fill="#3FA2F7" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <path stroke="#3FA2F7" stroke-width="2" d="M31.7135628,1.15470054 L1.10363561,18.8273503 L1.10363561,54.1726497 L31.7135628,71.8452995 L62.3234901,54.1726497 L62.3234901,18.8273503 L31.7135628,1.15470054 Z"></path>
+            </g>
+            <rect id="Rectangle-6" stroke="#FFFFFF" stroke-width="1.66666667" x="17.8333333" y="22.8333333" width="28.3333333" height="23.4684685" rx="3.33333333"></rect>
+            <path d="M18.25,40.8513514 L45.7626234,40.8513514" id="Line-5" stroke="#FFFFFF" stroke-width="1.66666667" stroke-linecap="square"></path>
+            <path d="M30.6475959,46.8260448 L29.1857374,51.6334147" id="Line-6" stroke="#FFFFFF" stroke-width="1.66666667" stroke-linecap="square"></path>
+            <path d="M35.6475959,46.8260448 L34.1857374,51.6334147" id="Line-6" stroke="#FFFFFF" stroke-width="1.66666667" stroke-linecap="square" transform="translate(34.916667, 49.229730) scale(-1, 1) translate(-34.916667, -49.229730) "></path>
+            <path d="M27,52.1621622 L37.8333333,52.1621622" id="Line-7" stroke="#FFFFFF" stroke-width="1.66666667" stroke-linecap="round"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="225px" height="122px" viewBox="0 0 225 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Tech Icons/Devops</title>
+    <g id="ELEMENT-SHEET" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Element-Sheet" transform="translate(-54.000000, -1176.000000)">
+            <g id="Tech-Icons/Devops" transform="translate(54.000000, 1176.000000)">
+                <circle id="Oval" fill="#FCA738" cx="61" cy="61" r="61"></circle>
+                <circle id="Oval" fill="#56A4E9" opacity="0.8" cx="164" cy="61" r="61"></circle>
+                <text id="DEV" font-family="Arial-Black, Arial Black" font-size="36" font-weight="700" letter-spacing="0.9" fill="#FFFFFF">
+                    <tspan x="18.1490234" y="75">DEV</tspan>
+                </text>
+                <text id="OPS" font-family="Arial-Black, Arial Black" font-size="36" font-weight="700" letter-spacing="0.9" fill="#FFFFFF">
+                    <tspan x="121.157812" y="75">OPS</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
