@@ -15,11 +15,9 @@
         <ul :class="$style.techList">
           <li :class="$style.techItem" v-for="tech of techList" :key="tech.iconId">
             <NuxtLink :class="$style.techInner" to="/join">
-              <client-only>
-                <svg width="53" height="53" :class="$style.icon">
-                  <use :href="`${spriteSvg}#icon-${tech.iconId}`"></use>
-                </svg>
-              </client-only>
+              <svg width="53" height="53" :class="$style.icon">
+                <use :href="`${spriteSvg}#icon-${tech.iconId}`"></use>
+              </svg>
               <p :class="$style.techText">{{ tech.text }}</p>
             </NuxtLink>
           </li>

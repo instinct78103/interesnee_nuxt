@@ -80,8 +80,7 @@ $breakpoint: 1024;
     z-index: 99;
 
     .site-branding {
-        max-width: 1240px;
-        width: calc(100% - 80px);
+        width: min(1240px, calc(100% - 40px));
         margin: 0 auto;
 
         @media (width >= #{$breakpoint}px) {

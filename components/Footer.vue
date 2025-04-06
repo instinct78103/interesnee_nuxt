@@ -4,7 +4,7 @@ import { useSliderClient } from '@/composables/useSlider.client.js';
 import { ref } from 'vue';
 
 const sliderRef = ref(null);
-useSliderClient(sliderRef, {autoplay: true, autoplaySpeed: 3000});
+useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
 
 const contacts = [
   {
@@ -87,11 +87,9 @@ const socialLinks = [
         <ul>
           <li v-for="socialLink in socialLinks" :key="socialLink.href">
             <a :href="socialLink.href" target="_blank">
-              <client-only>
               <svg width="20" height="20">
                 <use :href="`${spriteSvg}#icon-${socialLink.icon}`"></use>
               </svg>
-              </client-only>
             </a>
           </li>
         </ul>
