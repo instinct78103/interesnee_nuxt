@@ -13,6 +13,7 @@
                 :class="$style.picture"
                 :webp="project.thumbnail.webp"
                 :alt="project.name"
+                loading="lazy"
               ></NuxtImg>
               <div :class="$style.desc">
                 <p :class="$style.title">{{ project.name }}</p>

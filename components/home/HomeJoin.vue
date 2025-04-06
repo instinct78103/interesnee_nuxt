@@ -1,6 +1,5 @@
 <script setup>
 import RotatedHeading from '@/components/RotatedHeading.vue';
-// import AppImage from '@/components/AppImage.vue';
 import $style from '@/components/home/HomeJoin.module.scss'
 
 const images = [
@@ -62,6 +61,7 @@ const images = [
             :key="index"
             :alt="item.name"
             :class="[$style.img, item.sizeClass]"
+            loading="lazy"
           ></NuxtImg>
         </div>
       </div>

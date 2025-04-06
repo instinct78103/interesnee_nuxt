@@ -28,20 +28,20 @@ import BackgroundAnimation from '@/components/home/BackgroundAnimation.vue';
 import { ref } from 'vue';
 import { useSliderClient } from '~/composables/useSlider.client.js';
 
-const currentIndex = ref(0);
 const sliderRef = ref(null);
-const countSlidesRef = ref(null);
 
-onMounted(() => {
+const { currentIndex, countSlidesRef } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
 
-  console.log(sliderRef.value)
-
-  const { currentIndex: ci, startAutoScroll, countSlidesRef: cs } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
-  currentIndex.value = ci.value
-  countSlidesRef.value = cs.value
-
-  startAutoScroll();
-})
+// onMounted(() => {
+//
+//   console.log(sliderRef.value)
+//
+//   const { currentIndex: ci, startAutoScroll, countSlidesRef: cs } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
+//   currentIndex.value = ci.value
+//   countSlidesRef.value = cs.value
+//
+//   startAutoScroll();
+// })
 
 const heroSlides = [
   {

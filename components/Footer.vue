@@ -85,7 +85,7 @@ const socialLinks = [
       <div class="social-links">
         <p class="div-heading">Мы в социальных сетях</p>
         <ul>
-          <li v-for="socialLink in socialLinks">
+          <li v-for="socialLink in socialLinks" :key="socialLink.href">
             <a :href="socialLink.href" target="_blank">
               <client-only>
               <svg width="20" height="20">
@@ -97,7 +97,7 @@ const socialLinks = [
         </ul>
       </div>
       <div class="bottom">
-        <p class="copyright">© 2006-{{ new Date().getFullYear() }} «Очень Интересно»</p>
+        <p class="copyright">© 2006-2025 «Очень Интересно»</p>
         <p class="policy"><a href="/static/docs/privacy_policy.pdf">Политика обработки персональных данных</a></p>
       </div>
     </div>

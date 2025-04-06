@@ -55,6 +55,10 @@ div:has(> .office) {
         min-width: 100%;
         scroll-snap-stop: always;
         scroll-snap-align: start;
+
+        &:is(img) {
+            object-fit: cover;
+        }
     }
 
     &::-webkit-scrollbar {

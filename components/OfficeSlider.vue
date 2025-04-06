@@ -7,16 +7,18 @@
       <template #slider>
         <div :class="$style.office" v-for="(value, index) in office" :key="index" class="office">
           <div :class="$style.officePhotos" :ref="el => imagesSliderRefs[index] = el">
-            <NuxtImg
-              v-for="(image, imgIndex) in value.images" :key="imgIndex"
-              :class="[$style.carouselImg, {[$style.isActive]: imgIndex === sliders[index]?.currentIndex}]"
-              :src="image.webp"
-              :alt="value.city"
-              lazy
-              :width="200"
-              :height="180"
-              @click="openPopup(value, imgIndex, index)"
-            ></NuxtImg>
+            <div v-for="(image, imgIndex) in value.images" :key="imgIndex">
+              <NuxtImg
+                :class="[$style.carouselImg]"
+                :src="image.webp"
+                :alt="value.city"
+                width="250"
+                height="180"
+                loading="lazy"
+                fit="cover"
+                @click="openPopup(value, imgIndex, index)"
+              ></NuxtImg>
+            </div>
           </div>
 
           <ul :class="$style.indicatorsList" v-if="value.images.length > 1">
@@ -59,7 +61,7 @@
           <NuxtImg
             :src="image.webp"
             alt="Office photo"
-            lazy
+            loading="lazy"
           ></NuxtImg>
         </div>
       </template>
@@ -79,7 +81,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import BaseSlider from '@/components/BaseSlider.vue';
 import Dialog from '@/components/Dialog.vue';
 import $style from '@/scss/OfficeSlider.module.scss';
@@ -100,11 +102,11 @@ const openPopup = (value, imgIndex, officeIndex) => {
   officeClickedIndex.value = officeIndex;
   imgIndexClicked.value = imgIndex;
   showModal();
-  nextTick(() => dialogImagesRef.value[imgIndex].scrollIntoView({
+  setTimeout(() => dialogImagesRef.value[imgIndex].scrollIntoView({
     behavior: 'smooth',
     inline: 'start',
     block: 'nearest',
-  }));
+  }), 250)
 };
 
 const scrollToImage = (idx, buttonClickedIndex) => {

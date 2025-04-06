@@ -18,6 +18,7 @@ export const offices = [
       {
         origin: '/images/photos/offices/rydniy/rydniy-1.jpg',
         placeholder: '/images/photos/offices/rydniy/rydniy-1@placeholder.jpg',
+        webp: '/images/photos/offices/rydniy/rydniy-1.jpg',
       },
     ],
     city: 'Рудный',
