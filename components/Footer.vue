@@ -97,7 +97,7 @@ const socialLinks = [
         </ul>
       </div>
       <div class="bottom">
-        <p class="copyright">© 2006-2025 «Очень Интересно»</p>
+        <p class="copyright">© 2006-{{ (new Date()).getFullYear() }} «Очень Интересно»</p>
         <p class="policy"><a href="/static/docs/privacy_policy.pdf">Политика обработки персональных данных</a></p>
       </div>
     </div>
