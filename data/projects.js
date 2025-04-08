@@ -4,15 +4,15 @@ export const projects = [
     name: 'Trivver',
     slug: 'trivver',
     mainImage: {
-      x1: '/images/projects/Trivver/Trivver_1920px.jpg',
-      x2: '/images/projects/Trivver/Trivver_1920px.jpg',
-      placeholder: '/images/projects/Trivver/Trivver_1920px@placeholder.jpg',
+      x1: '/images/projects/trivver/Trivver_1920px.jpg',
+      x2: '/images/projects/trivver/Trivver_1920px.jpg',
+      placeholder: '/images/projects/trivver/Trivver_1920px@placeholder.jpg',
     },
     thumbnail: {
-      x1: '/images/projects/Trivver/iPad.jpg',
-      x2: '/images/projects/Trivver/iPad@2x.jpg',
-      placeholder: '/images/projects/Trivver/trivver-projects@placeholder.jpg',
-      webp: '/images/projects/Trivver/iPad.webp',
+      x1: '/images/projects/trivver/iPad.jpg',
+      x2: '/images/projects/trivver/iPad@2x.jpg',
+      placeholder: '/images/projects/trivver/trivver-projects@placeholder.jpg',
+      webp: '/images/projects/trivver/iPad.webp',
     },
     description: {
       issue:
@@ -26,19 +26,19 @@ export const projects = [
       'Любите компьютерные игры? Как насчет таргетированной рекламы внутри игр? Скажем, вы фанат кока-колы и не любите пепси - так почему бы не показывать вам ее в виртуальном мире? Наш клиент взял эту идею за основу успешного стартапа и привлек нашу команду для ее реализации.',
     images: [
       {
-        x1: '/images/projects/Trivver/bg_1@1x.jpg',
-        x2: '/images/projects/Trivver/bg_1@1x.jpg',
-        placeholder: '/images/projects/Trivver/bg_1@placeholder.jpg',
+        x1: '/images/projects/trivver/bg_1@1x.jpg',
+        x2: '/images/projects/trivver/bg_1@1x.jpg',
+        placeholder: '/images/projects/trivver/bg_1@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Trivver/bg_2@1x.jpg',
-        x2: '/images/projects/Trivver/bg_2@1x.jpg',
-        placeholder: '/images/projects/Trivver/bg_2@placeholder.jpg',
+        x1: '/images/projects/trivver/bg_2@1x.jpg',
+        x2: '/images/projects/trivver/bg_2@1x.jpg',
+        placeholder: '/images/projects/trivver/bg_2@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Trivver/bg_3@1x.jpg',
-        x2: '/images/projects/Trivver/bg_3@1x.jpg',
-        placeholder: '/images/projects/Trivver/bg_3@placeholder.jpg',
+        x1: '/images/projects/trivver/bg_3@1x.jpg',
+        x2: '/images/projects/trivver/bg_3@1x.jpg',
+        placeholder: '/images/projects/trivver/bg_3@placeholder.jpg',
       },
     ],
   },
@@ -47,17 +47,17 @@ export const projects = [
     name: 'VR Puzzle Box',
     slug: 'vr-puzzle-box',
     mainImage: {
-      x1: '/images/projects/VRPuzzleBox/VRPuzzleBox-head-new.png',
-      x2: '/images/projects/VRPuzzleBox/VRPuzzleBox-head-new.png',
+      x1: '/images/projects/vr-puzzle-box/VRPuzzleBox-head-new.png',
+      x2: '/images/projects/vr-puzzle-box/VRPuzzleBox-head-new.png',
       placeholder:
-        '/images/projects/VRPuzzleBox/VRPuzzleBox-head@placeholder.jpg',
+        '/images/projects/vr-puzzle-box/VRPuzzleBox-head@placeholder.jpg',
     },
     thumbnail: {
-      x1: '/images/projects/VRPuzzleBox/VRPuzzleBox-projects.jpg',
-      x2: '/images/projects/VRPuzzleBox/VRPuzzleBox-projects.jpg',
+      x1: '/images/projects/vr-puzzle-box/VRPuzzleBox-projects.jpg',
+      x2: '/images/projects/vr-puzzle-box/VRPuzzleBox-projects.jpg',
       placeholder:
-        '/images/projects/VRPuzzleBox/VRPuzzleBox-projects@placeholder.jpg',
-      webp: '/images/projects/VRPuzzleBox/VRPuzzleBox-projects.webp',
+        '/images/projects/vr-puzzle-box/VRPuzzleBox-projects@placeholder.jpg',
+      webp: '/images/projects/vr-puzzle-box/VRPuzzleBox-projects.webp',
     },
     description: {
       issue:
@@ -71,40 +71,40 @@ export const projects = [
       'В 2019 году наша компания принимала участие в конференции DUMP, специально для которой было разработано приложение - VR Puzzle Box. По результатам презентации созданный прототип игры получил положительные отзывы от участников.',
     images: [
       {
-        x1: '/images/projects/VRPuzzleBox/1.jpg',
-        x2: '/images/projects/VRPuzzleBox/1.jpg',
+        x1: '/images/projects/vr-puzzle-box/1.jpg',
+        x2: '/images/projects/vr-puzzle-box/1.jpg',
       },
       {
-        x1: '/images/projects/VRPuzzleBox/2.jpg',
-        x2: '/images/projects/VRPuzzleBox/2.jpg',
+        x1: '/images/projects/vr-puzzle-box/2.jpg',
+        x2: '/images/projects/vr-puzzle-box/2.jpg',
       },
       {
-        x1: '/images/projects/VRPuzzleBox/3.jpg',
-        x2: '/images/projects/VRPuzzleBox/3.jpg',
+        x1: '/images/projects/vr-puzzle-box/3.jpg',
+        x2: '/images/projects/vr-puzzle-box/3.jpg',
       },
       {
-        x1: '/images/projects/VRPuzzleBox/4.jpg',
-        x2: '/images/projects/VRPuzzleBox/4.jpg',
+        x1: '/images/projects/vr-puzzle-box/4.jpg',
+        x2: '/images/projects/vr-puzzle-box/4.jpg',
       },
       {
-        x1: '/images/projects/VRPuzzleBox/5.jpg',
-        x2: '/images/projects/VRPuzzleBox/5.jpg',
+        x1: '/images/projects/vr-puzzle-box/5.jpg',
+        x2: '/images/projects/vr-puzzle-box/5.jpg',
       },
       {
-        x1: '/images/projects/VRPuzzleBox/6.jpg',
-        x2: '/images/projects/VRPuzzleBox/6.jpg',
+        x1: '/images/projects/vr-puzzle-box/6.jpg',
+        x2: '/images/projects/vr-puzzle-box/6.jpg',
       },
     ],
     videos: [
       {
-        poster: '/images/projects/VRPuzzleBox/VRPuzzleBox@video-preview.jpg',
+        poster: '/images/projects/vr-puzzle-box/VRPuzzleBox@video-preview.jpg',
         sources: [
           {
-            src: '/videos/projects/VRPuzzleBox/1.mp4',
+            src: '/videos/projects/vr-puzzle-box/1.mp4',
             type: 'video/mp4',
           },
           {
-            src: '/videos/projects/VRPuzzleBox/1.webm',
+            src: '/videos/projects/vr-puzzle-box/1.webm',
             type: 'video/webm',
           },
         ],
@@ -116,9 +116,9 @@ export const projects = [
     name: 'August McGregor',
     slug: 'august-mcgregor',
     mainImage: {
-      x1: '/images/projects/August%20McGregor/2_1920.png',
-      x2: '/images/projects/August%20McGregor/2_1920@2x.png',
-      placeholder: '/images/projects/August%20McGregor/2_1920@placeholder.jpg',
+      x1: '/images/projects/august-mcgregor/2_1920.png',
+      x2: '/images/projects/august-mcgregor/2_1920@2x.png',
+      placeholder: '/images/projects/august-mcgregor/2_1920@placeholder.jpg',
     },
     description: {
       issue:
@@ -130,24 +130,24 @@ export const projects = [
     },
     images: [
       {
-        x1: '/images/projects/August%20McGregor/1.jpg',
-        x2: '/images/projects/August%20McGregor/1.jpg',
-        placeholder: '/images/projects/August%20McGregor/1@placeholder.jpg',
+        x1: '/images/projects/august-mcgregor/1.jpg',
+        x2: '/images/projects/august-mcgregor/1.jpg',
+        placeholder: '/images/projects/august-mcgregor/1@placeholder.jpg',
       },
       {
-        x1: '/images/projects/August%20McGregor/2.jpg',
-        x2: '/images/projects/August%20McGregor/2@2x.jpg',
-        placeholder: '/images/projects/August%20McGregor/2@placeholder.jpg',
+        x1: '/images/projects/august-mcgregor/2.jpg',
+        x2: '/images/projects/august-mcgregor/2@2x.jpg',
+        placeholder: '/images/projects/august-mcgregor/2@placeholder.jpg',
       },
       {
-        x1: '/images/projects/August%20McGregor/3.jpg',
-        x2: '/images/projects/August%20McGregor/3@2x.jpg',
-        placeholder: '/images/projects/August%20McGregor/3@placeholder.jpg',
+        x1: '/images/projects/august-mcgregor/3.jpg',
+        x2: '/images/projects/august-mcgregor/3@2x.jpg',
+        placeholder: '/images/projects/august-mcgregor/3@placeholder.jpg',
       },
     ],
     thumbnail: {
-      x1: '/images/projects/August%20McGregor/2_1920.png',
-      x2: '/images/projects/August%20McGregor/2_1920@2x.png',
+      x1: '/images/projects/august-mcgregor/2_1920.png',
+      x2: '/images/projects/august-mcgregor/2_1920@2x.png',
     },
   },
   {
@@ -155,10 +155,10 @@ export const projects = [
     name: 'Medic Clipboard',
     slug: 'medic-clipboard',
     mainImage: {
-      x1: '/images/projects/Medic%20Clipboard/3_1920px.png',
-      x2: '/images/projects/Medic%20Clipboard/3_1920px@2x.png',
+      x1: '/images/projects/medic-clipboard/3_1920px.png',
+      x2: '/images/projects/medic-clipboard/3_1920px@2x.png',
       placeholder:
-        '/images/projects/Medic%20Clipboard/3_1920px@placeholder.jpg',
+        '/images/projects/medic-clipboard/3_1920px@placeholder.jpg',
     },
     description: {
       issue:
@@ -170,24 +170,24 @@ export const projects = [
     },
     images: [
       {
-        x1: '/images/projects/Medic%20Clipboard/1.jpg',
-        x2: '/images/projects/Medic%20Clipboard/1@2x.jpg',
-        placeholder: '/images/projects/Medic%20Clipboard/1@placeholder.jpg',
+        x1: '/images/projects/medic-clipboard/1.jpg',
+        x2: '/images/projects/medic-clipboard/1@2x.jpg',
+        placeholder: '/images/projects/medic-clipboard/1@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Medic%20Clipboard/2.jpg',
-        x2: '/images/projects/Medic%20Clipboard/2@2x.jpg',
-        placeholder: '/images/projects/Medic%20Clipboard/2@placeholder.jpg',
+        x1: '/images/projects/medic-clipboard/2.jpg',
+        x2: '/images/projects/medic-clipboard/2@2x.jpg',
+        placeholder: '/images/projects/medic-clipboard/2@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Medic%20Clipboard/3.jpg',
-        x2: '/images/projects/Medic%20Clipboard/3@2x.jpg',
-        placeholder: '/images/projects/Medic%20Clipboard/3@placeholder.jpg',
+        x1: '/images/projects/medic-clipboard/3.jpg',
+        x2: '/images/projects/medic-clipboard/3@2x.jpg',
+        placeholder: '/images/projects/medic-clipboard/3@placeholder.jpg',
       },
     ],
     thumbnail: {
-      x1: '/images/projects/Medic%20Clipboard/1.jpg',
-      x2: '/images/projects/Medic%20Clipboard/1@2x.jpg',
+      x1: '/images/projects/medic-clipboard/1.jpg',
+      x2: '/images/projects/medic-clipboard/1@2x.jpg',
     },
   },
   {
@@ -195,13 +195,13 @@ export const projects = [
     name: 'Microchip',
     slug: 'microchip',
     mainImage: {
-      x1: '/images/projects/Microchip/4_1920px.jpg',
-      x2: '/images/projects/Microchip/4_1920px@2x.png',
-      placeholder: '/images/projects/Microchip/4_1920px@placeholder.jpg',
+      x1: '/images/projects/microchip/4_1920px.jpg',
+      x2: '/images/projects/microchip/4_1920px@2x.png',
+      placeholder: '/images/projects/microchip/4_1920px@placeholder.jpg',
     },
     thumbnail: {
-      x1: '/images/projects/Microchip/Iot.jpg',
-      x2: '/images/projects/Microchip/Iot@2x.jpg',
+      x1: '/images/projects/microchip/Iot.jpg',
+      x2: '/images/projects/microchip/Iot@2x.jpg',
     },
     description: {
       issue:
@@ -215,19 +215,19 @@ export const projects = [
       'Мы разработали полное IoT решение на базе партнерства с одним из крупнейших провайдеров мобильной связи (AT&T).',
     images: [
       {
-        x1: '/images/projects/Microchip/1.jpg',
-        x2: '/images/projects/Microchip/1.jpg',
-        placeholder: '/images/projects/Microchip/1@placeholder.jpg',
+        x1: '/images/projects/microchip/1.jpg',
+        x2: '/images/projects/microchip/1.jpg',
+        placeholder: '/images/projects/microchip/1@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Microchip/2.jpg',
-        x2: '/images/projects/Microchip/2@2x.jpg',
-        placeholder: '/images/projects/Microchip/2@placeholder.jpg',
+        x1: '/images/projects/microchip/2.jpg',
+        x2: '/images/projects/microchip/2@2x.jpg',
+        placeholder: '/images/projects/microchip/2@placeholder.jpg',
       },
       {
-        x1: '/images/projects/Microchip/3.jpg',
-        x2: '/images/projects/Microchip/3@2x.jpg',
-        placeholder: '/images/projects/Microchip/3@placeholder.jpg',
+        x1: '/images/projects/microchip/3.jpg',
+        x2: '/images/projects/microchip/3@2x.jpg',
+        placeholder: '/images/projects/microchip/3@placeholder.jpg',
       },
     ],
   },
@@ -236,14 +236,14 @@ export const projects = [
     name: 'National Signal',
     slug: 'national-signal',
     mainImage: {
-      x1: '/images/projects/National%20Signal/5_1920px.jpg',
-      x2: '/images/projects/National%20Signal/5_1920px@2x.png',
+      x1: '/images/projects/national-signal/5_1920px.jpg',
+      x2: '/images/projects/national-signal/5_1920px@2x.png',
       placeholder:
-        '/images/projects/National%20Signal/5_1920px@placeholder.jpg',
+        '/images/projects/national-signal/5_1920px@placeholder.jpg',
     },
     thumbnail: {
-      x1: '/images/projects/National%20Signal/Iot.jpg',
-      x2: '/images/projects/National%20Signal/Iot@2x.jpg',
+      x1: '/images/projects/national-signal/Iot.jpg',
+      x2: '/images/projects/national-signal/Iot@2x.jpg',
     },
     description: {
       issue:
@@ -258,19 +258,19 @@ export const projects = [
       'информации на мобильных табло на территории США.',
     images: [
       {
-        x1: '/images/projects/National%20Signal/1.jpg',
-        x2: '/images/projects/National%20Signal/1.jpg',
-        placeholder: '/images/projects/National%20Signal/1@placeholder.jpg',
+        x1: '/images/projects/national-signal/1.jpg',
+        x2: '/images/projects/national-signal/1.jpg',
+        placeholder: '/images/projects/national-signal/1@placeholder.jpg',
       },
       {
-        x1: '/images/projects/National%20Signal/2.jpg',
-        x2: '/images/projects/National%20Signal/2@2x.jpg',
-        placeholder: '/images/projects/National%20Signal/2@placeholder.jpg',
+        x1: '/images/projects/national-signal/2.jpg',
+        x2: '/images/projects/national-signal/2@2x.jpg',
+        placeholder: '/images/projects/national-signal/2@placeholder.jpg',
       },
       {
-        x1: '/images/projects/National%20Signal/3.jpg',
-        x2: '/images/projects/National%20Signal/3@2x.jpg',
-        placeholder: '/images/projects/National%20Signal/3@placeholder.jpg',
+        x1: '/images/projects/national-signal/3.jpg',
+        x2: '/images/projects/national-signal/3@2x.jpg',
+        placeholder: '/images/projects/national-signal/3@placeholder.jpg',
       },
     ],
   },
@@ -279,9 +279,9 @@ export const projects = [
     name: 'Grabber',
     slug: 'grabber',
     mainImage: {
-      x1: '/images/projects/Grabber/grabber_mainbanner_1920px.jpg',
-      x2: '/images/projects/Grabber/grabber_mainbanner_1920px.jpg',
-      placeholder: '/images/projects/Grabber/grabber_projectpage_990px.jpg',
+      x1: '/images/projects/grabber/grabber_mainbanner_1920px.jpg',
+      x2: '/images/projects/grabber/grabber_mainbanner_1920px.jpg',
+      placeholder: '/images/projects/grabber/grabber_projectpage_990px.jpg',
     },
     description: {
       issue:
@@ -312,32 +312,32 @@ export const projects = [
     },
     images: [
       {
-        x1: '/images/projects/Grabber/grabber_screenshot_1.jpg',
-        x2: '/images/projects/Grabber/grabber_screenshot_1.jpg',
+        x1: '/images/projects/grabber/grabber_screenshot_1.jpg',
+        x2: '/images/projects/grabber/grabber_screenshot_1.jpg',
       },
       {
-        x1: '/images/projects/Grabber/grabber_screenshot_2.jpg',
-        x2: '/images/projects/Grabber/grabber_screenshot_2.jpg',
+        x1: '/images/projects/grabber/grabber_screenshot_2.jpg',
+        x2: '/images/projects/grabber/grabber_screenshot_2.jpg',
       },
       {
-        x1: '/images/projects/Grabber/grabber_screenshot_3.jpg',
-        x2: '/images/projects/Grabber/grabber_screenshot_3.jpg',
+        x1: '/images/projects/grabber/grabber_screenshot_3.jpg',
+        x2: '/images/projects/grabber/grabber_screenshot_3.jpg',
       },
     ],
     thumbnail: {
-      x1: '/images/projects/Grabber/grabber_projectpage_990px.jpg',
-      x2: '/images/projects/Grabber/grabber_projectpage_990px.jpg',
+      x1: '/images/projects/grabber/grabber_projectpage_990px.jpg',
+      x2: '/images/projects/grabber/grabber_projectpage_990px.jpg',
     },
     videos: [
       {
-        poster: '/images/projects/Grabber/grabber_projectpage_990px.jpg',
+        poster: '/images/projects/grabber/grabber_projectpage_990px.jpg',
         sources: [
           {
-            src: '/videos/projects/Grabber/Grabber_portfolio_01.mp4',
+            src: '/videos/projects/grabber/Grabber_portfolio_01.mp4',
             type: 'video/mp4',
           },
           {
-            src: '/videos/projects/Grabber/Grabber_portfolio_01.webm',
+            src: '/videos/projects/grabber/Grabber_portfolio_01.webm',
             type: 'video/webm',
           },
         ],

@@ -53,5 +53,5 @@ export default defineNuxtConfig({
   },
 
   css: ['@/scss/layout/index.scss'],
-  modules: ['@nuxt/image'],
+  modules: ['@nuxt/image', '@pinia/nuxt'],
 });
