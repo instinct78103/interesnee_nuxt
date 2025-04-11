@@ -125,7 +125,6 @@ dialog {
     gap: 20px;
     max-width: 767px;
     height: fit-content;
-    pointer-events: none;
 
     > * {
       outline: none;
