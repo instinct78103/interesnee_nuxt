@@ -16,7 +16,8 @@
     "pinia": "^3.0.1",
     "velocity-animate": "^1.5.2",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "sass-embedded": "^1.86.0"
