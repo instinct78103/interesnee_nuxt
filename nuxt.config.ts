@@ -51,7 +51,9 @@ export default defineNuxtConfig({
       routes: ['/'],
     },
   },
-
+  experimental: {
+    appManifest: false,
+  },
   css: ['@/scss/layout/index.scss'],
   modules: ['@nuxt/image', '@pinia/nuxt'],
 });

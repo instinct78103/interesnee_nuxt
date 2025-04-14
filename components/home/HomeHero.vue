@@ -14,7 +14,7 @@
       <div :class="$style.row">
         <div :class="$style.heroService">
           <div v-for="(item, index) in activities" :key="index" :class="$style.heroServiceItem">
-            <img :class="$style.heroServiceImg" :src="`/static/${item.icon}`" :alt="item.text" decoding="async">
+            <NuxtImg :class="$style.heroServiceImg" :src="`/icons/${item.icon}`" :alt="item.text"></NuxtImg>
             <p :class="$style.heroServiceText">{{ item.text }}</p>
           </div>
         </div>
@@ -30,18 +30,7 @@ import { useSliderClient } from '~/composables/useSlider.client.js';
 
 const sliderRef = ref(null);
 
-const { currentIndex, countSlidesRef } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
-
-// onMounted(() => {
-//
-//   console.log(sliderRef.value)
-//
-//   const { currentIndex: ci, startAutoScroll, countSlidesRef: cs } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
-//   currentIndex.value = ci.value
-//   countSlidesRef.value = cs.value
-//
-//   startAutoScroll();
-// })
+const { currentIndex } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 3000 });
 
 const heroSlides = [
   {
@@ -193,9 +182,7 @@ const projectsUrl = 'projects';
 }
 
 .heroServiceImg {
-  @media(width < 768px) {
-    width: 50px;
-  }
+  width: 50px;
 }
 
 .heroServiceText {

@@ -1,15 +1,5 @@
 $breakpoint: 1024;
 
-@keyframes slideTop {
-    from {
-        transform: translateY(-100%);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
 .mobile-menu-toggle {
     @media(width >= #{$breakpoint}px) {
         display: none;
@@ -110,8 +100,6 @@ $breakpoint: 1024;
     }
 
     &.sticky {
-        animation-name: slideTop;
-        animation-duration: 0.3s;
         position: sticky;
         background-color: var(--red);
         box-shadow: 0 5px 10px rgba(47, 25, 25, 0.3);

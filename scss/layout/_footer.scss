@@ -39,12 +39,13 @@
                 display: grid;
 
                 @media (width < 768px) {
-                    display: flex;
-                    flex-flow: row nowrap;
                     scroll-snap-type: x mandatory;
                     overflow-x: auto;
                     scroll-behavior: smooth;
                     scrollbar-width: none; // Hide scrollbar in Firefox
+                    grid-auto-flow: column;
+                    grid-template-columns: 100%;
+                    grid-auto-columns: 100%;
 
                     &::-webkit-scrollbar {
                         display: none;

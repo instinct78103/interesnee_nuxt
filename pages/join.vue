@@ -14,7 +14,7 @@
     <ul v-if="renderJobs && jobs.length" :class="$style.list">
       <li v-for="job in filteredJobs" :key="job.id" :class="$style.listItem">
         <div :class="[ $style.item, { [$style.closed]: isJobClosed(job.status) } ]">
-          <NuxtLink :to="{ path: '/job', query: { city: job.url, job: job.board_code }}" :class="$style.link">
+          <NuxtLink :to="`/job/${job.board_code}`" :class="$style.link">
             <div :class="$style.title">{{ job?.title?.replace('(RU)', '') }}</div>
           </NuxtLink>
         </div>

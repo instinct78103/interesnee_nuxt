@@ -56,32 +56,32 @@ import { computed } from 'vue';
 
 const items = [
   {
-    src: '/static/python.svg',
+    src: '/icons/python.svg',
     post: 'Python',
     count: '14 человек',
   },
   {
-    src: '/static/js.svg',
+    src: '/icons/js.svg',
     post: 'Front-end',
     count: '24 человека',
   },
   {
-    src: '/static/net.svg',
+    src: '/icons/net.svg',
     post: '.Net',
     count: '20 человек',
   },
   {
-    src: '/static/qa.svg',
+    src: '/icons/qa.svg',
     post: 'QA',
     count: '14 человек',
   },
   {
-    src: '/static/unity.svg',
+    src: '/icons/unity.svg',
     post: 'Unity',
     count: '18 человек',
   },
   {
-    src: '/static/mobile.svg',
+    src: '/icons/mobile.svg',
     post: 'Mobile',
     count: '10 человек',
   },
@@ -92,22 +92,22 @@ const items = [
       'У нас работают талантливые разработчики, архитекторы, проектировщики, менеджеры, дизайнеры, инженеры, тестировщики, использующие новые технологии в реальных проектах, которые мы создаем с нуля. Присоединяйся!',
   },
   {
-    src: '/static/php.svg',
+    src: '/icons/php.svg',
     post: 'PHP',
     count: '17 человек',
   },
   {
-    src: '/static/3d.svg',
+    src: '/icons/3d.svg',
     post: '3D',
     count: '4 человека',
   },
   {
-    src: '/static/devops.svg',
+    src: '/icons/devops.svg',
     post: 'DevOps',
     count: '10 человек',
   },
   {
-    src: '/static/ui-ux.svg',
+    src: '/icons/ui-ux.svg',
     post: 'UI/UX Design',
     count: '7 человек',
   },
