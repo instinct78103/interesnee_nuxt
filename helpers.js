@@ -1,3 +1,2 @@
 export const SITE_NAME = 'Очень Интересно';
-
-export const spriteSvg = computed(() => '/icons/sprite.svg');
+export { default as spriteSvg } from '~/assets/sprite.svg';
