@@ -121,10 +121,10 @@ dialog {
     scroll-behavior: smooth;
     overflow-x: auto;
     scrollbar-width: none;
-    align-items: center;
     gap: 20px;
     max-width: 767px;
     height: fit-content;
+    overflow-y: hidden;
 
     > * {
       outline: none;
