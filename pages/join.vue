@@ -13,7 +13,7 @@
     </ul>
     <ul v-if="renderJobs && jobs.length" :class="$style.list">
       <li v-for="job in filteredJobs" :key="job.id" :class="$style.listItem">
-        <div :class="[ $style.item, { [$style.closed]: isJobClosed(job.status) } ]">
+        <div :class="[ $style.item, { [$style.closed]: job.status === 'Closed' } ]">
           <NuxtLink :to="`/job/${job.board_code}`" :class="$style.link">
             <div :class="$style.title">{{ job?.title?.replace('(RU)', '') }}</div>
           </NuxtLink>
@@ -43,23 +43,8 @@ import { storeToRefs } from 'pinia';
 const route = useRoute();
 const { jobs, cities } = storeToRefs(useJobsStore());
 
-const jobStatuses = {
-  open: 'Open',
-  onHold: 'On Hold',
-  approved: 'Approved',
-  needsApproval: 'Needs Approval',
-  drafting: 'Drafting',
-  filled: 'Filled',
-  cancelled: 'Cancelled',
-  closed: 'Closed',
-};
-
 const currentCity = computed(() => route.query.city || 'ekaterinburg');
 const renderJobs = computed(() => !!currentCity.value);
-
-function isJobClosed(status) {
-  return status === jobStatuses.closed;
-}
 
 const filteredJobs = computed(() => {
 
@@ -74,9 +59,9 @@ const filteredJobs = computed(() => {
   const filteredJobs = [...jobs.value];
   const newFilteredJobs = filteredJobs.filter(job => job.city.split(', ').includes(currentCity));
 
-  const openJobs = newFilteredJobs.filter(job => !isJobClosed(job.status));
+  const openJobs = newFilteredJobs.filter(job => job.status !== 'Closed');
 
-  const closedJobs = newFilteredJobs.filter(job => isJobClosed(job.status));
+  const closedJobs = newFilteredJobs.filter(job => job.status === 'Closed');
 
   return openJobs.concat(closedJobs);
 });
