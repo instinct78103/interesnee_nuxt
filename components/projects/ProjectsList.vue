@@ -9,13 +9,11 @@
           @click="toggleInfo(project.id)"
         >
           <div :class="$style.itemContainer">
-            <img
+            <NuxtImg
               :class="$style.img"
               :src="project.thumbnail.x1"
               :alt="project.name"
-              :srcset="`${project.thumbnail.x1} 1x, ${project.thumbnail.x2} 2x`"
-              decoding="async"
-            >
+            ></NuxtImg>
             <div :class="[ $style.info, {[$style.active]: activeIndex === project.id }]">
               <h3 :class="$style.infoHeading">{{ project.name }}</h3>
               <p :class="$style.text" v-html="project.shortDescription" />
