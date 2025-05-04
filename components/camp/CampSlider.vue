@@ -8,12 +8,12 @@
         <NuxtImg :class="$style.icQuotes" src="/icons/ic_quotes.svg" alt="quotes"></NuxtImg>
         <div :class="$style.gridStack">
           <blockquote
-            v-for="(data, index) in sliderContent"
+            v-for="(item, index) in campFeedbacks"
             :class="[$style.commentWrap, {[$style.active]: index === currentIndex}]"
-            :key="index">
-            <p v-html="data.feedback.content" />
+            :key="item.text">
+            <p v-html="item.text" />
             <p :class="$style.commentAuthor">
-              {{ data.feedback.author }}
+              {{ item.author }}
             </p>
           </blockquote>
         </div>
@@ -31,11 +31,11 @@
       </button>
       <div :class="$style.scrollSnap" ref="sliderRef">
         <NuxtImg
-          v-for="(data, index) in sliderContent"
-          :key="index"
+          v-for="item in campFeedbacks"
+          :key="item.text"
           :class="$style.contentImage"
-          :alt="data.img.alt"
-          :src="data.img.x1"
+          :alt="item.author"
+          :src="item.img"
         ></NuxtImg>
       </div>
       <button
@@ -63,9 +63,6 @@ import { ref } from 'vue';
 
 const sliderRef = ref(null);
 const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { autoplay: true, autoplaySpeed: 5000 });
-
-const sliderContent = campFeedbacks;
-
 </script>
 
 <style lang="scss" module>

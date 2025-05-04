@@ -13,7 +13,6 @@
             v-if="item.image.x1"
             :class="$style.image"
             :src="item.image.x1"
-            :srcset="getSrcSet(item.image)"
             :alt="item.name"
           ></NuxtImg>
           <p :class="$style.name">{{ item.name }}</p>
@@ -71,13 +70,6 @@ const hrs = [
     ],
   },
 ];
-
-function getSrcSet(image) {
-  let srcset = image.x1 ? `${image.x1} 1x` : '';
-  srcset += image.x2 ? `, ${image.x2} 2x` : '';
-
-  return srcset;
-}
 </script>
 
 <style lang="scss" module>

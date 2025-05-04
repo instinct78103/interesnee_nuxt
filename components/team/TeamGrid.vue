@@ -18,15 +18,15 @@
           :class="{[$style.colOffer]: item.heading}">
           <div :class="[$style.item, {[$style.itemOffer]: item.heading}]">
             <template v-if="!item.heading">
-              <img
+              <NuxtImg
                 v-if="item.src"
                 :class="$style.image"
                 :src="item.src"
                 width="35"
                 height="35"
-                decoding="async"
                 :alt="item.post"
-              >
+                loading="lazy"
+              ></NuxtImg>
 
               <svg v-else :class="$style.icon">
                 <use :href="`${spriteSvg}#icon-rounded-${item.icon}`"></use>

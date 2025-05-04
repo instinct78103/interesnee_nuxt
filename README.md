@@ -7,7 +7,11 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 Make sure to install the dependencies:
 
 ```bash
-docker run -it --rm -v $(pwd):/nuxt -u $(id -u):$(id -g) -w /nuxt node:20 npm install
+docker run -it --rm \
+  -e HOME=/nuxt \
+  -v $(pwd):/nuxt \
+  -u $(id -u):$(id -g) -w /nuxt \
+  node:22 npm install
 ```
 
 ## Development Server
@@ -15,13 +19,24 @@ docker run -it --rm -v $(pwd):/nuxt -u $(id -u):$(id -g) -w /nuxt node:20 npm in
 Start the development server on `http://0.0.0.0:3000`:
 
 ```bash
-docker run -it --rm -v $(pwd):/nuxt -u $(id -u):$(id -g) --env TZ=$(cat /etc/timezone) --name nuxt -w /nuxt -p 3000:3000 node:20 npm run dev -- --host 0.0.0.0
+docker run -it --rm \
+  -v $(pwd):/nuxt \
+  -v $(pwd)/.npm:/nuxt/.npm \
+  -u $(id -u):$(id -g) \
+  -e HOME=/nuxt \
+  --env TZ=$(cat /etc/timezone) \
+  --name nuxt -w /nuxt -p 3000:3000 \
+  node:22 npm run dev -- --host 0.0.0.0
 ```
 
 ## SSG
 
 ```bash
-docker run -it --rm -v $(pwd):/nuxt -u $(id -u):$(id -g) --name nuxt -w /nuxt node:20 npm run generate
+docker run -it --rm -e HOME=/nuxt \
+  -v $(pwd):/nuxt \
+  -u $(id -u):$(id -g) --name nuxt \
+  -w /nuxt \
+  node:22 npm run generate
 ```
 
 # Serve static with Nginx

@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     appManifest: false,
+    // payloadExtraction: false, // payload as external json file (not in *.html)
   },
   css: ['@/scss/layout/index.scss'],
   modules: ['@nuxt/image', '@pinia/nuxt'],
