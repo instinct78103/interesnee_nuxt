@@ -312,9 +312,10 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   }
 }
 
-.contentImage img {
+.contentImage {
   width: 100%;
   min-height: -webkit-fill-available;
   height: -webkit-fill-available;
+  object-fit: cover;
 }
 </style>
