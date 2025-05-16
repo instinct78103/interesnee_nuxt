@@ -1,7 +1,7 @@
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useJobsStore } from '~/store/useJobs.js';
-import { computed, ref } from 'vue';
+import {storeToRefs} from 'pinia';
+import {useJobsStore} from '~/store/useJobs.js';
+import {computed, ref} from 'vue';
 import Hero from '~/components/Hero.vue';
 
 const job = ref([]);
@@ -31,20 +31,20 @@ function sanitizeHtml(container) {
     }
   });
 }
+
 /**
  * Custom directive -- end
  */
 
-useHead({ title: 'Очень Интересно - Вакансия', });
+useHead({title: 'Очень Интересно - Вакансия',});
 
 // import BaseForm from '@/components/BaseForm.vue';
-const { jobs } = storeToRefs(useJobsStore());
+const {jobs} = storeToRefs(useJobsStore());
 
 function filterJob(boardCode) {
   const currentJob = jobs.value.filter(job => job.board_code === boardCode)[0];
 
   job.value = currentJob;
-  // form.vacancy.value = currentJob?.title;
   // form.vacancy.value = currentJob?.title;
 
   return currentJob;
@@ -63,14 +63,13 @@ const filteredJob = computed(() => {
 </script>
 
 <template>
-<!--  <BaseForm />-->
+  <!--  <BaseForm />-->
 
   <section v-if="filteredJob">
     <Hero kind="small">{{ filteredJob?.title.replace('(RU)', '') }}</Hero>
     <div :class="$style.root">
       <div :class="$style.container">
-        <p :class="$style.contentTitle">Описание:</p>
-        <div class="qwww" v-html="filteredJob.description" :class="$style.content"></div>
+        <div v-clean-html="filteredJob.description" :class="$style.content"></div>
       </div>
     </div>
   </section>
@@ -78,6 +77,33 @@ const filteredJob = computed(() => {
 </template>
 
 <style lang="scss" module>
+
+.container {
+  width: min(100% - 40px, 1120px);
+  margin-inline: auto;
+  padding-block: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-block: 10px 0;
+
+  p:empty {
+    display: none;
+  }
+
+  ul {
+    padding-left: 20px;
+
+    > li {
+      list-style: disc;
+      text-wrap: balance;
+    }
+  }
+}
+
 .slide-top-enter-active {
   transition: transform 0.3s ease-out, opacity 0.5s ease-out;
 }
