@@ -74,7 +74,7 @@ const socialLinks = [
         <ul class="scroll-snap" ref="sliderRef">
           <li v-for="contact in contacts" :key="contact.href">
             <p>
-              <span class="flag" :class="contact.flag"></span>
+              <img class="flag" :class="contact.flag" :src="`https://blog.interesnee.ru/wp-content/themes/interesnee/project/assets/icons/flag-${contact.flag}.svg`" width="25" height="15" loading="lazy"/>
               <NuxtLink v-if="contact.hasData" :to="`/company/${contact.slug}`">{{ contact.city }}</NuxtLink>
               <template v-else>{{ contact.city }}</template>
             </p>
