@@ -8,6 +8,7 @@
           :key="index"
           :alt="imageName"
           :src="`/images/stickers/${imageName}`"
+          loading="lazy"
         ></NuxtImg>
       </div>
       <a :class="$style.button" href="https://t.me/addstickers/interesneeru" target="_blank">Получи забавный Стикер-пак в Telegram</a>

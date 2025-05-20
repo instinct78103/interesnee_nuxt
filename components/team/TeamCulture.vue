@@ -4,7 +4,7 @@
       <h2 :class="$style.title">Наша культура</h2>
       <div :class="$style.gallery">
         <div v-for="(image, index) in images" :key="image" :class="$style.photo">
-          <NuxtImg :src="image" :class="$style.galleryImage" alt="Culture photo" @click="openPopup(index)"></NuxtImg>
+          <NuxtImg :src="image" :class="$style.galleryImage" alt="Culture photo" @click="openPopup(index)" loading="lazy"></NuxtImg>
         </div>
       </div>
       <div :class="$style.actions">
@@ -25,7 +25,7 @@
     </template>
     <template #body>
     <div v-for="(photo, index) in fullsizePhotos" :key="photo" class="sliderItem" :ref="(el) => photoSlidesRef[index] = el">
-      <NuxtImg :src="photo" alt="Culture photo"></NuxtImg>
+      <NuxtImg :src="photo" alt="Culture photo" loading="lazy"></NuxtImg>
     </div>
     </template>
     <template #arrowRight>

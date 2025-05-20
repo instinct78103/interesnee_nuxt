@@ -3,7 +3,13 @@
     <div :class="$style.container">
       <div :class="$style.gallery">
         <div v-for="(image, index) in images" :key="image" :class="$style.photo" @click="openPopup(index)">
-          <img :src="image" :class="$style.galleryImage" alt="Culture photo">
+          <NuxtImg
+              :src="image"
+              :class="$style.galleryImage"
+              alt="Culture photo"
+              format="webp"
+              loading="lazy"
+          ></NuxtImg>
           <button :class="$style.playButton" type="button" />
         </div>
       </div>
@@ -28,7 +34,7 @@
     </template>
     <template #body>
       <div v-for="(video, index) in videos" :key="video" class="sliderItem" :ref="(el) => videoSlidesRef[index] = el">
-        <video :class="$style.sliderPhoto" width="800" controls>
+        <video :class="$style.sliderPhoto" width="800" controls preload="none">
           <source :src="video" type="video/mp4">
         </video>
       </div>

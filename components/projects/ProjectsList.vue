@@ -13,6 +13,7 @@
               :class="$style.img"
               :src="project.thumbnail.x1"
               :alt="project.name"
+              loading="lazy"
             ></NuxtImg>
             <div :class="[ $style.info, {[$style.active]: activeIndex === project.id }]">
               <h3 :class="$style.infoHeading">{{ project.name }}</h3>

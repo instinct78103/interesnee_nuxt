@@ -2,7 +2,9 @@
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-16',
-
+  router: {
+    prefetchLinks: false
+  },
   nitro: {
     devProxy: {
       '/wp-json': {
@@ -11,14 +13,18 @@ export default defineNuxtConfig({
         secure: false,
       },
     },
-    prerender: {
-      routes: ['/'],
-    },
+    // prerender: {
+    //   routes: ['/'],
+    // },
   },
   experimental: {
     appManifest: false,
-    // payloadExtraction: false, // payload as external json file (not in *.html)
+    payloadExtraction: false, // if true, payload as external json file (not in *.html)
   },
   css: ['@/scss/layout/index.scss'],
-  modules: ['@nuxt/image', '@pinia/nuxt'],
+  delayHydration: {
+    debug: process.env.NODE_ENV === 'development',
+    mode: 'mount'
+  },
+  modules: ['@nuxt/image', '@pinia/nuxt', 'nuxt-delay-hydration'],
 });

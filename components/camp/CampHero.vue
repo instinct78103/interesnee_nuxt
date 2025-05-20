@@ -6,6 +6,7 @@
         src="/images/camp/summer-camp-2025-closed.webp"
         alt="Summer Camp 2025 Closed"
         style="max-width: 100%"
+        loading="lazy"
       ></NuxtImg>
     </div>
   </section>

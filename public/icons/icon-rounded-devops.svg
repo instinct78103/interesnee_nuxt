@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79 79">
+    <circle xmlns="http://www.w3.org/2000/svg" opacity=".16" cx="39.5" cy="39.5" r="39.5"/>
+    <g xmlns="http://www.w3.org/2000/svg" transform="translate(25 31)" opacity=".495">
+      <ellipse style="mix-blend-mode:multiply" cx="8.485" cy="8.5" rx="8.485" ry="8.5"/>
+      <ellipse style="mix-blend-mode:multiply" cx="19.515" cy="8.5" rx="8.485" ry="8.5"/>
+    </g>
+  </svg>

@@ -15,9 +15,7 @@
         <ul :class="$style.techList">
           <li :class="$style.techItem" v-for="tech of techList" :key="tech.iconId">
             <NuxtLink :class="$style.techInner" to="/join">
-              <svg width="53" height="53" :class="$style.icon">
-                <use :href="`${spriteSvg}#icon-${tech.iconId}`"></use>
-              </svg>
+              <div :class="$style.icon" :style="{backgroundImage: `url(/icons/icon-${tech.iconId}.svg)`}"></div>
               <p :class="$style.techText">{{ tech.text }}</p>
             </NuxtLink>
           </li>
@@ -43,7 +41,6 @@
 
 <script setup>
 import RotatedHeading from '@/components/RotatedHeading.vue';
-import { spriteSvg } from '@/helpers.js';
 import { useSliderClient } from '~/composables/useSlider.client.js';
 import { ref } from 'vue';
 
@@ -51,7 +48,7 @@ const sliderRef = ref(null);
 const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef);
 
 const techList = [
-  { iconId: 'react', text: 'REACT' },
+  { iconId: 'react', text: 'REACT'},
   { iconId: 'angular-js', text: 'ANGULAR' },
   { iconId: 'python', text: 'PYTHON' },
   { iconId: 'php', text: 'PHP' },
@@ -153,7 +150,6 @@ const descriptions = [
   font-weight: 700;
   color: var(--gray-4);
   text-transform: uppercase;
-  transition: color 0.3s ease-in-out;
 
   @media(width < 768px) {
     display: none;
@@ -161,8 +157,10 @@ const descriptions = [
 }
 
 .icon {
-  fill: var(--gray-4);
-  transition: fill 0.3s ease-in-out;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  filter: invert(95%) sepia(0%) saturate(3821%) hue-rotate(316deg) brightness(88%) contrast(92%);
 }
 
 .techInner:hover .techText {
@@ -170,7 +168,7 @@ const descriptions = [
 }
 
 .techInner:hover .icon {
-  fill: var(--blue);
+  filter: invert(41%) sepia(71%) saturate(496%) hue-rotate(160deg) brightness(88%) contrast(87%);
 }
 
 .isActive {

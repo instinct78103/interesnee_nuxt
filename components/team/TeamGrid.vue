@@ -28,10 +28,6 @@
                 loading="lazy"
               ></NuxtImg>
 
-              <svg v-else :class="$style.icon">
-                <use :href="`${spriteSvg}#icon-rounded-${item.icon}`"></use>
-              </svg>
-
               <p :class="$style.post">{{ item.post }}</p>
               <p :class="[$style.text, $style.count]">
                 <span><b>Команда</b><br>{{ item.count }}</span>
@@ -50,7 +46,6 @@
 </template>
 
 <script setup>
-import { spriteSvg } from '@/helpers.js';
 import RotatedHeading from '@/components/RotatedHeading.vue';
 import { computed } from 'vue';
 

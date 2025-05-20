@@ -14,7 +14,7 @@
       <div :class="$style.row">
         <div :class="$style.heroService">
           <div v-for="(item, index) in activities" :key="index" :class="$style.heroServiceItem">
-            <NuxtImg :class="$style.heroServiceImg" :src="`/icons/${item.icon}`" :alt="item.text"></NuxtImg>
+            <NuxtImg :class="$style.heroServiceImg" :src="`/icons/${item.icon}`" :alt="item.text" loading="lazy"></NuxtImg>
             <p :class="$style.heroServiceText">{{ item.text }}</p>
           </div>
         </div>

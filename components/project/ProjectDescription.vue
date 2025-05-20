@@ -53,7 +53,7 @@
           :src="slide.x1"
           :class="$style.picture"
           :alt="project.name"
-
+          loading="lazy"
           fit="cover"
         ></NuxtImg>
       </div>

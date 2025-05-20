@@ -45,6 +45,7 @@ docker run -it --rm -e HOME=/nuxt \
 docker run --rm \
   -v $(pwd)/.output:/var/lib/html/.output:ro \
   -v $(pwd)/.nuxt:/var/lib/html/.nuxt:ro \
+  -v $(pwd)/public:/var/lib/html/public:ro \
   -v $(pwd)/default.conf:/etc/nginx/conf.d/default.conf:ro \
   -p 80:80 \
   -w /var/lib/html \

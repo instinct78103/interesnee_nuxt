@@ -8,9 +8,7 @@
           :key="item.icon"
           :class="[$style.col, $style.offerCol]"
         >
-          <svg :class="$style.offerIcon" width="60" height="60">
-            <use :href="`${spriteSvg}#icon-rounded-${item.icon}`"></use>
-          </svg>
+          <div :class="$style.offerIcon" :style="{backgroundImage: `url('/icons/icon-rounded-${item.icon}.svg')`}"></div>
           <p :class="$style.offerTitle">{{ item.title }}</p>
           <p :class="$style.offerText">{{ item.text }}</p>
         </div>
@@ -20,9 +18,6 @@
 </template>
 
 <script setup>
-
-import { spriteSvg } from '@/helpers.js';
-
 const items = [
   {
     icon: 'money',
@@ -101,7 +96,9 @@ const items = [
 }
 
 .offerIcon {
-  fill: var(--red-light);
+  width: 60px;
+  height: 60px;
+  filter: invert(62%) sepia(57%) saturate(3255%) hue-rotate(321deg) brightness(90%) contrast(116%);
 }
 
 .offerTitle {
@@ -109,7 +106,6 @@ const items = [
   color: var(--red);
   margin: 0;
   text-wrap: balance;
-  width: 18ch;
 }
 
 .offerText {

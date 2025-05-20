@@ -1,5 +1,4 @@
 <script setup>
-import { spriteSvg } from '@/helpers.js';
 import { useSliderClient } from '@/composables/useSlider.client.js';
 import { ref } from 'vue';
 
@@ -87,9 +86,7 @@ const socialLinks = [
         <ul>
           <li v-for="socialLink in socialLinks" :key="socialLink.href">
             <a :href="socialLink.href" target="_blank">
-              <svg width="20" height="20">
-                <use :href="`${spriteSvg}#icon-${socialLink.icon}`"></use>
-              </svg>
+              <NuxtImg :src="`/icons/icon-${socialLink.icon}.svg`" loading="lazy" width="20" height="20"></NuxtImg>
             </a>
           </li>
         </ul>

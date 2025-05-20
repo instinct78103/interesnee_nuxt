@@ -5,7 +5,7 @@
 
     <div :class="$style.descriptionCol">
       <div :class="$style.descriptionContainer">
-        <NuxtImg :class="$style.icQuotes" src="/icons/ic_quotes.svg" alt="quotes"></NuxtImg>
+        <NuxtImg :class="$style.icQuotes" src="/icons/ic_quotes.svg" alt="quotes" loading="lazy"></NuxtImg>
         <div :class="$style.gridStack">
           <blockquote
             v-for="(item, index) in campFeedbacks"
@@ -36,6 +36,7 @@
           :class="$style.contentImage"
           :alt="item.author"
           :src="item.img"
+          loading="lazy"
         ></NuxtImg>
       </div>
       <button

@@ -135,18 +135,14 @@
                 list-style: none;
                 justify-content: center;
                 padding-left: 0;
+                gap: 20px;
 
                 > li {
-                    margin: 0 10px;
                     display: inline-flex;
 
                     a {
                         display: inline-flex;
-                    }
-
-                    svg {
-                        fill: #f75050;
-                        transition: fill 0.3s;
+                        filter: invert(62%) sepia(57%) saturate(3255%) hue-rotate(321deg) brightness(90%) contrast(116%);
                     }
                 }
             }
