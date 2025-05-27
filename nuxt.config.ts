@@ -20,6 +20,11 @@ export default defineNuxtConfig({
   experimental: {
     appManifest: false,
     payloadExtraction: false, // if true, payload as external json file (not in *.html)
+    defaults: {
+      nuxtLink: {
+        activeClass: 'active',
+      }
+    }
   },
   css: ['@/scss/layout/index.scss'],
   delayHydration: {

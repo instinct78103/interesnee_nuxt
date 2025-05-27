@@ -4,18 +4,17 @@
       <div :class="$style.list">
         <div
           v-for="project in projects"
-          :key="project.id"
+          :key="project.slug"
           :class="$style.item"
-          @click="toggleInfo(project.id)"
         >
           <div :class="$style.itemContainer">
             <NuxtImg
               :class="$style.img"
-              :src="project.thumbnail.x1"
+              :src="project.thumbnail"
               :alt="project.name"
               loading="lazy"
             ></NuxtImg>
-            <div :class="[ $style.info, {[$style.active]: activeIndex === project.id }]">
+            <div :class="$style.info">
               <h3 :class="$style.infoHeading">{{ project.name }}</h3>
               <p :class="$style.text" v-html="project.shortDescription" />
               <router-link :to="`/projects/${project.slug}`" :class="$style.link">Смотреть</router-link>
@@ -29,10 +28,6 @@
 
 <script setup>
 import { projects } from '@/data/projects.js';
-import { ref } from 'vue';
-
-const activeIndex = ref(false);
-const toggleInfo = projectId => activeIndex.value = activeIndex.value === projectId ? false : projectId;
 </script>
 
 <style lang="scss" module>
@@ -158,7 +153,6 @@ const toggleInfo = projectId => activeIndex.value = activeIndex.value === projec
   }
 }
 
-.info.active,
 .info:hover {
   @media(width >= 1024px) {
     opacity: 1;
@@ -174,7 +168,7 @@ const toggleInfo = projectId => activeIndex.value = activeIndex.value === projec
   margin-top: 0;
   margin-bottom: 20px;
   max-height: 60%;
-  text-wrap: balance;
+  text-wrap: pretty;
 
   @media(width < 1024px) {
     color: var(--gray-dark);

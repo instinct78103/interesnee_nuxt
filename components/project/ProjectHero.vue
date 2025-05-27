@@ -8,7 +8,7 @@
       <NuxtImg
         v-if="project.mainImage"
         :class="$style.img"
-        :src="project.mainImage.x1"
+        :src="project.mainImage"
         :alt="project.name"
         :key="`${project.name}-head-image`"
       ></NuxtImg>

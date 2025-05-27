@@ -32,15 +32,15 @@
           <p
             v-if="activeTab === 'issue'"
             :class="$style.description"
-            v-html="project.description.issue" />
+            v-html="project.description.issue.join('<br><br>')" />
           <p
             v-if="activeTab === 'process'"
             :class="$style.description"
-            v-html="project.description.process" />
+            v-html="project.description.process.join('<br><br>')" />
           <p
             v-if="activeTab === 'result'"
             :class="$style.description"
-            v-html="project.description.result"
+            v-html="project.description.result.join('<br><br>')"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div :class="$style.images" ref="sliderRef">
         <NuxtImg
           v-for="(slide, key) in project.images" :key
-          :src="slide.x1"
+          :src="slide"
           :class="$style.picture"
           :alt="project.name"
           loading="lazy"
@@ -64,18 +64,17 @@
       </ul>
       <template v-if="project.videos">
         <video
-          v-for="(video, vIndex) in project.videos"
-          :key="vIndex"
+          v-for="video in project.videos"
+          :key="video.id"
           :class="$style.video"
           :poster="video.poster"
           controls="controls"
         >
           <source
-            v-for="(source, sIndex) in video.sources"
-            :key="sIndex"
+            v-for="source in video.sources"
+            :key="source.src"
             :src="source.src"
             :type="source.type">
-          Your browser does not support the video tag.
         </video>
       </template>
     </div>

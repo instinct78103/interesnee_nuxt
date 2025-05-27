@@ -148,8 +148,7 @@ $breakpoint: 1024;
                         font-weight: normal;
                         font-size: 14px;
 
-                        &.active,
-                        &:hover {
+                        &:is(.active, :hover) {
                             color: #fff;
                             border-color: #f75050;
                             border-radius: 50px;

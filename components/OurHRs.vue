@@ -14,7 +14,6 @@
             :class="$style.image"
             :src="item.image.x1"
             :alt="item.name"
-            loading="loading"
           ></NuxtImg>
           <p :class="$style.name">{{ item.name }}</p>
 

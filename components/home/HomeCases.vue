@@ -9,9 +9,9 @@
           <div v-for="(project, key) in projectsSlides" :key :class="[$style.projectSlideWrapper, {[activeClass]: key === activeSlide}]">
             <div :class="$style.projectSlide">
               <NuxtImg
-                :src="project.thumbnail.x1"
+                :src="project.thumbnail"
                 :class="$style.picture"
-                :webp="project.thumbnail.webp"
+                :webp="project.thumbnail"
                 :alt="project.name"
                 loading="lazy"
               ></NuxtImg>
@@ -81,6 +81,11 @@ if (projectsSlides.value) {
   padding-block: 0 35px;
   padding-inline: 35px;
   min-width: 100%;
+
+  img {
+    aspect-ratio: 16 / 12;
+    object-fit: cover;
+  }
 
   @media(width < 768px) {
     padding: 0;
