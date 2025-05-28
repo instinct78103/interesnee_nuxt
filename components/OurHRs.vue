@@ -27,10 +27,7 @@
               target="_blank"
               rel="noreferrer noopener"
             >
-
-              <svg :width="social.width" :height="social.height">
-                <use :href="`${spriteSvg}#icon-${social.id}`"></use>
-              </svg>
+              <NuxtImg :width="social.width" :height="social.height" :src="`/icons/icon-${social.id}.svg`" loading="lazy"></NuxtImg>
             </a>
           </div>
         </div>
@@ -43,7 +40,6 @@
 
 <script setup>
 import ContactsListBlock from '@/components/ContactsListBlock.vue';
-import { spriteSvg } from '@/helpers.js';
 
 const hrs = [
   {
@@ -150,15 +146,8 @@ const hrs = [
   display: inline-flex;
   margin: 0 5px;
 
-  &:hover {
-    svg {
-      fill: var(--red);
-    }
+  img {
+    filter: invert(45%) sepia(17%) saturate(2372%) hue-rotate(317deg) brightness(104%) contrast(94%);
   }
-}
-
-.socialLink svg {
-  fill: var(--red-light);
-  transition: fill 0.3s;
 }
 </style>

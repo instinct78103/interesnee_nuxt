@@ -46,7 +46,12 @@ $breakpoint: 1024;
                     display: block;
                     color: #fff;
                     font-size: 22px;
-                    padding: 13px 10px;
+                    padding: 12px 10px;
+
+                    &:is(.active, :hover) {
+                        border-bottom: 2px solid #f75050;
+                        margin-bottom: -2px; // prevent moving
+                    }
                 }
             }
         }

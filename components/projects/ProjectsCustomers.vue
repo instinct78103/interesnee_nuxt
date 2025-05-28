@@ -3,16 +3,12 @@
     <div :class="$style.container" ref="sliderRef">
       <ul :class="$style.list">
         <li v-for="icon in iconsRow1" :key="icon" :class="$style.item">
-          <svg :class="[$style.icon, $style[icon]]">
-            <use :href="`${spriteSvg}#icon-logo-${icon}`"></use>
-          </svg>
+          <NuxtImg :class="[$style.icon, $style[icon]]" :src="`/icons/icon-logo-${icon}.svg`" loading="lazy"></NuxtImg>
         </li>
       </ul>
       <ul :class="$style.list">
         <li v-for="icon in iconsRow2" :key="icon" :class="$style.item">
-          <svg :class="[$style.icon, $style[icon]]">
-            <use :href="`${spriteSvg}#icon-logo-${icon}`"></use>
-          </svg>
+          <NuxtImg :class="[$style.icon, $style[icon]]" :src="`/icons/icon-logo-${icon}.svg`" loading="lazy"></NuxtImg>
         </li>
       </ul>
     </div>
@@ -26,7 +22,6 @@
 
 <script setup>
 import { useSliderClient } from '@/composables/useSlider.client.js';
-import { spriteSvg } from '@/helpers.js';
 import { ref } from 'vue';
 
 const sliderRef = ref(null)
@@ -157,12 +152,12 @@ div:has(> .list) {
 }
 
 .icon {
-  fill: var(--gray-4);
+  filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(18deg) brightness(91%) contrast(89%);
   transition: fill 0.3s;
   max-width: 100%;
 
   &:hover {
-    fill: var(--blue);
+    filter: invert(40%) sepia(37%) saturate(865%) hue-rotate(160deg) brightness(98%) contrast(89%);
   }
 }
 

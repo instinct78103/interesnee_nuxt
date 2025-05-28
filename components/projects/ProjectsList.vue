@@ -45,8 +45,7 @@ import { projects } from '@/data/projects.js';
   @extend %content;
 
   padding-block-start: 0;
-  max-width: 1110px;
-  width: 100%;
+  width: min(1110px, 100% - 20px);
 
   @media(width < 1024px) {
     background-color: var(--white-gray);

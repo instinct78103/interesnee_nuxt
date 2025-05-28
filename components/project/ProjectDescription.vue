@@ -12,9 +12,7 @@
               :key="index"
             >
               <div :class="$style.mark">
-                <svg :class="$style.icon">
-                  <use :href="`${spriteSvg}#icon-tick`"></use>
-                </svg>
+                <NuxtImg :class="$style.icon" :src="`/icons/icon-tick.svg`" loading="lazy"></NuxtImg>
               </div>
               <div :class="$style.btn">
                 <button
@@ -81,7 +79,6 @@
   </article>
 </template>
 <script setup>
-import { spriteSvg } from '@/helpers.js';
 import { ref } from 'vue';
 import { useSliderClient } from '@/composables/useSlider.client.js';
 
@@ -150,7 +147,9 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   flex-wrap: nowrap;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  margin-bottom: -20px;
+  width: min(900px, 100% - 40px);
+  margin-inline: auto;
+  gap: 20px;
 
   > * {
     scroll-snap-stop: always;
@@ -199,6 +198,7 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   justify-content: center;
   align-items: center;
   height: 20px;
+  margin-top: -30px;
 
   > li {
     display: flex;
@@ -261,14 +261,11 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   min-width: 36px;
   height: 36px;
   transition: fill 0.4s;
-}
-
-.point.red .icon {
-  fill: var(--red-light);
+  filter: invert(62%) sepia(57%) saturate(3255%) hue-rotate(321deg) brightness(90%) contrast(116%);
 }
 
 .point.blue .icon {
-  fill: var(--blue);
+  filter: invert(43%) sepia(28%) saturate(932%) hue-rotate(160deg) brightness(95%) contrast(103%);
 }
 
 .btn {
@@ -328,9 +325,10 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   }
 }
 
-// Projects video
 .video {
-  width: 100%;
-  max-height: 80vh;
+  display: block;
+  width: min(900px, 100% - 40px);
+  margin-inline: auto;
+  margin-top: 40px;
 }
 </style>

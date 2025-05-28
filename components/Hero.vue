@@ -1,10 +1,10 @@
 <template>
   <div :class="[$style.root, { [$style.small]: kind === 'small' }, { [$style.empty]: kind === 'empty' } ]">
-    <h1
-      v-if="kind !== 'empty'"
-      :class="[$style.heading, { [$style.smallHeading]: kind === 'small' } ]">
-      <slot />
-    </h1>
+    <div :class="$style.container">
+      <h1 v-if="kind !== 'empty'" :class="[$style.heading, { [$style.smallHeading]: kind === 'small' } ]">
+        <slot/>
+      </h1>
+    </div>
   </div>
 </template>
 <script setup>
@@ -34,6 +34,10 @@ defineProps({
   }
 }
 
+.container {
+  width: min(100% - 40px, clamp(20ch, 690px, 30ch));
+}
+
 h1 {
   text-wrap: balance;
 }
@@ -53,7 +57,6 @@ h1 {
   font-size: clamp(26px, 4vw, 40px);
   font-weight: normal;
   text-align: center;
-  width: clamp(20ch, 60vw, 30ch);
 }
 
 .smallHeading {

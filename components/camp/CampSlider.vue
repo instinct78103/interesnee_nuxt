@@ -179,7 +179,7 @@ const { currentIndex, countSlidesRef, navigate } = useSliderClient(sliderRef, { 
   margin: 0;
 
   p {
-    text-wrap: balance;
+    text-wrap: pretty;
   }
 
   br {
