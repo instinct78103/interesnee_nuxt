@@ -4,27 +4,26 @@
 
   <section :class="$style.container">
     <h2 :class="$style.heading">Карьера</h2>
-    <ul :class="$style.buttonsList" v-if="cities.length">
-      <li v-for="(city, index) in cities" :key="index">
-        <NuxtLink :to="{ path: '/join', query: { city: city.url }}" :class="[$style.button, {[$style.buttonActive]: currentCity === city.url }, 'hover-scale']">
+    <ul :class="$style.buttonsList" v-if="data.cities.length">
+      <li v-for="city in data.cities" :key="city.url">
+        <NuxtLink
+            :to="{ path: '/join', query: { city: city.url }}"
+            :class="[$style.button, {[$style.buttonActive]: currentCity === city.url }, 'hover-scale']"
+        >
           {{ city.nameRU }}
         </NuxtLink>
       </li>
     </ul>
-    <ul v-if="renderJobs && jobs.length" :class="$style.list">
-      <li v-for="job in filteredJobs" :key="job.id" :class="$style.listItem">
-        <div :class="[ $style.item, { [$style.closed]: job.status === 'Closed' } ]">
-          <NuxtLink :to="`/job/${job.board_code}`" :class="$style.link">
-            <div :class="$style.title">{{ job?.title?.replace('(RU)', '') }}</div>
+
+    <ul :class="$style.list">
+      <li v-for="{ board_code, status, title } in jobsByUrl" :key="board_code" :class="$style.listItem">
+        <div :class="[ $style.item, { [$style.closed]: status === 'Closed' } ]">
+          <NuxtLink external :to="`/job/${board_code}`" :class="$style.link">
+            <div :class="$style.title">{{ title?.replace('(RU)', '') }}</div>
           </NuxtLink>
         </div>
       </li>
     </ul>
-    <svg v-else style="margin:160px auto 0;display:block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50" aria-label="Loading...">
-      <circle cx="25" cy="25" r="20" fill="none" stroke="var(--red)" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round" transform="rotate(-90, 25, 25)">
-        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite" />
-      </circle>
-    </svg>
   </section>
 
   <OurHRs />
@@ -36,34 +35,78 @@ useHead({ title: `${SITE_NAME} - Присоединяйся`, });
 
 import Hero from '@/components/Hero.vue';
 import OurHRs from '@/components/OurHRs.vue';
-import { computed } from 'vue';
-import { useJobsStore } from '@/store/useJobs.js';
-import { storeToRefs } from 'pinia';
+
+const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU', {
+  server: true,
+  lazy: false,
+  default: () => [],
+  transform: (items) => {
+
+    const allowedCities = ['ekaterinburg', 'krasnoyarsk', 'sochi'];
+
+    function citySlug(name) {
+      return name
+          .trim()
+          .toLowerCase()
+          .replace(/\s/g, '-');
+    }
+
+    function translateCity(name) {
+      const cities = {
+        Ekaterinburg: 'Екатеринбург',
+        Krasnoyarsk: 'Красноярск',
+        Sochi: 'Сочи',
+      };
+
+      return cities[name] || null;
+    }
+
+    function parseCites(jobs) {
+      const cities = [];
+
+      jobs.forEach(e => {
+        if (e.city) {
+          const jobCities = e.city.split(', ');
+          cities.push(...jobCities);
+        }
+      });
+
+      return [...new Set(cities)]
+          .filter(city => allowedCities.includes(city.toLowerCase()))
+          .map(city => ({
+            name: city,
+            nameRU: translateCity(city),
+            url: citySlug(city),
+          }));
+    }
+
+    const deprecatedJobs = [
+      'Unreal Engine developer (RU)',
+      'QA Engineer (auto) (RU)',
+      'JS - Frontend developer Junior (RU)',
+      'Accountant (RU)',
+      'Frontend developer - HTML/CSS/JS (RU)',
+      'Frontend developer - HTML/CSS/JS (part time) (RU)',
+    ];
+
+    const getOpenJobs = items.filter(job => !job.internal_code.endsWith('_hidden')
+        && job.country_id === 'Russian Federation'
+        && !deprecatedJobs.includes(job.title)
+        && allowedCities.some(city => job.city.toLowerCase().includes(city))
+    )
+
+    return {
+      jobs: getOpenJobs.map(({board_code, title, city, status}) => ({board_code, title, city, status})),
+      cities: parseCites(getOpenJobs)
+    }
+  }
+})
 
 const route = useRoute();
-const { jobs, cities } = storeToRefs(useJobsStore());
-
 const currentCity = computed(() => route.query.city || 'ekaterinburg');
-const renderJobs = computed(() => !!currentCity.value);
 
-const filteredJobs = computed(() => {
-
-  if (cities.value.length === 0) {
-    return false;
-  }
-
-  const currentCityUrl = (route.query.city || 'ekaterinburg');
-
-  const currentCity = cities.value.filter(city => city.url === currentCityUrl)[0].name;
-
-  const filteredJobs = [...jobs.value];
-  const newFilteredJobs = filteredJobs.filter(job => job.city.split(', ').includes(currentCity));
-
-  const openJobs = newFilteredJobs.filter(job => job.status !== 'Closed');
-
-  const closedJobs = newFilteredJobs.filter(job => job.status === 'Closed');
-
-  return openJobs.concat(closedJobs);
+const jobsByUrl = computed(() => {
+  return data.value.jobs.filter(job => job.city.toLowerCase().includes(currentCity.value.toLowerCase()));
 });
 </script>
 

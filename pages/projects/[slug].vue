@@ -1,40 +1,36 @@
 <script setup>
 
-import { useProjectsStore } from '@/store/useProjects.js';
-import { storeToRefs } from 'pinia';
-
 useHead({ title: 'Очень интересно - Наши проекты' });
 
-const { projects, currentProject } = storeToRefs(useProjectsStore());
-
-const { fetchProjects, updateCurrentProject } = useProjectsStore();
-
-if (!projects.value.length) {
-  await fetchProjects();
-}
-
-await updateCurrentProject(useRoute().params.slug);
-
-if (!currentProject.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Project Not Found' })
-}
+const { data: projects } = await useAsyncData('projects', async () => {
+  const { projects } = await import('@/data/projects.js');
+  return projects;
+}, {
+  server: true,
+  lazy: false,
+});
 
 import ProjectHero from '@/components/project/ProjectHero.vue';
 import ProjectDescription from '@/components/project/ProjectDescription.vue';
 import SideButton from '@/components/BaseSideButton.vue';
 import { computed } from 'vue';
 
+const currentProject = computed(() => projects.value.find(project => project.slug === useRoute().params.slug));
 const currentIndexBySlug = computed(() => projects.value.findIndex(project => project.slug === useRoute().params.slug));
 const prevProject = computed(() => projects.value[currentIndexBySlug.value - 1] || null);
 const nextProject = computed(() => projects.value[currentIndexBySlug.value + 1] || null);
+
+if (!currentProject.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Project Not Found' })
+}
 </script>
 
 <template>
-  <ProjectHero />
-  <ProjectDescription />
+  <ProjectHero :currentProject="{mainImage: currentProject.mainImage, name: currentProject.name}" />
+  <ProjectDescription :currentProject="{name: currentProject.name, description: currentProject.description, images: currentProject.images, videos: currentProject.videos}" />
   <div :class="$style.projectsNav">
-    <NuxtLink v-if="prevProject" :to="`/projects/${prevProject.slug}`">Предыдущий проект</NuxtLink>
-    <NuxtLink v-if="nextProject" :to="`/projects/${nextProject.slug}`">Следующий проект</NuxtLink>
+    <a v-if="prevProject" :href="`/projects/${prevProject.slug}`">Предыдущий проект</a>
+    <a v-if="nextProject" :href="`/projects/${nextProject.slug}`">Следующий проект</a>
   </div>
   <SideButton path-to="/projects" type="route">Назад к проектам</SideButton>
 </template>

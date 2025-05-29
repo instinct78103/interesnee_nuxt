@@ -220,10 +220,7 @@ const projects = [
     {
         name: 'Medic Clipboard',
         slug: 'medic-clipboard',
-        mainImage: {
-            x1: '/images/projects/medic-clipboard/3_1920px.png',
-            placeholder: '/images/projects/medic-clipboard/3_1920px@placeholder.jpg',
-        },
+        mainImage: '/images/projects/medic-clipboard/3_1920px.png',
         description: {
             issue: [
                 'Что если детальная медицинская информация с места выезда бригад скорой помощи будет поступать на пульт мгновенно - сколько жизней можно спасти? Наш клиент - инновационная компания, которая поставила перед собой задачу перевода бумажной работы парамедиков в цифровой формат и интеграции этого решения с диспетчерскими центрами. ',

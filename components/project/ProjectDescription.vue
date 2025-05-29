@@ -2,43 +2,43 @@
   <article>
     <div :class="$style.root">
       <div :class="$style.wrapper">
-        <h2 :class="$style.heading">{{ project.name }}</h2>
+        <h2 :class="$style.heading">{{ currentProject.name }}</h2>
 
         <div :class="$style.progress">
           <div :class="$style.line">
             <div
-              v-for="(stage, index) in stages"
-              :class="[$style.point, {[$style.red]: stage.value !== activeTab}, {[$style.blue]: stage.value === activeTab} ]"
-              :key="index"
+              v-for="{name, value} in stages"
+              :class="[$style.point, {[$style.red]: value !== activeTab}, {[$style.blue]: value === activeTab} ]"
+              :key="value"
             >
               <div :class="$style.mark">
                 <NuxtImg :class="$style.icon" :src="`/icons/icon-tick.svg`" loading="lazy"></NuxtImg>
               </div>
               <div :class="$style.btn">
                 <button
-                  :aria-label="stage.name"
+                  :aria-label="name"
                   :class="$style.button"
-                  @click="setActiveTab(stage.value)"
-                >{{ stage.name }}
+                  @click="setActiveTab(value)"
+                >{{ name }}
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div v-if="project.description">
+        <div v-if="currentProject.description">
           <p
             v-if="activeTab === 'issue'"
             :class="$style.description"
-            v-html="project.description.issue.join('<br><br>')" />
+            v-html="currentProject.description.issue.join('<br><br>')" />
           <p
             v-if="activeTab === 'process'"
             :class="$style.description"
-            v-html="project.description.process.join('<br><br>')" />
+            v-html="currentProject.description.process.join('<br><br>')" />
           <p
             v-if="activeTab === 'result'"
             :class="$style.description"
-            v-html="project.description.result.join('<br><br>')"
+            v-html="currentProject.description.result.join('<br><br>')"
           />
         </div>
       </div>
@@ -47,10 +47,10 @@
     <div :class="$style.galleryWrapper">
       <div :class="$style.images" ref="sliderRef">
         <NuxtImg
-          v-for="(slide, key) in project.images" :key
+          v-for="(slide, key) in currentProject.images" :key
           :src="slide"
           :class="$style.picture"
-          :alt="project.name"
+          :alt="currentProject.name"
           loading="lazy"
           fit="cover"
         ></NuxtImg>
@@ -60,9 +60,9 @@
           <button :class="{[$style.isActive]: key === currentIndex}" @click="navigate(key)"></button>
         </li>
       </ul>
-      <template v-if="project.videos">
+      <template v-if="currentProject.videos">
         <video
-          v-for="video in project.videos"
+          v-for="video in currentProject.videos"
           :key="video.id"
           :class="$style.video"
           :poster="video.poster"
@@ -82,12 +82,16 @@
 import { ref } from 'vue';
 import { useSliderClient } from '@/composables/useSlider.client.js';
 
+defineProps({
+  currentProject: {
+    name: String,
+    description: Object,
+    images: Array,
+    videos: Array,
+  }
+})
+
 const sliderRef = ref(null);
-
-import { useProjectsStore } from '@/store/useProjects.js';
-import { storeToRefs } from 'pinia';
-
-const { currentProject: project } = storeToRefs(useProjectsStore());
 
 const activeTab = ref('issue');
 

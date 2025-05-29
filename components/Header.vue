@@ -13,9 +13,8 @@
         <nav id="site-navigation" class="main-navigation" aria-label="Top Menu">
           <div class="menu-top-menu-container">
             <ul id="menu-top-menu" class="main-menu">
-              <li class="menu-item" v-for="item in menuItems" :key="item.path">
-                <NuxtLink v-if="!item.external" :to="item.path">{{ item.label }}</NuxtLink>
-                <a v-else :href="item.path">{{ item.label }}</a>
+              <li class="menu-item" v-for="{label, href} in menuItems" :key="href">
+                <a :href>{{ label }}</a>
               </li>
             </ul>
           </div>
@@ -31,9 +30,8 @@
   </header>
   <div :class="['mobile-menu-container', {'open': isMobileMenuOpen}]" style="top: 71px; height: calc(-71px + 100vh);">
     <ul class="mobile-nav">
-      <li class="menu-item" v-for="item in menuItems" :key="item.path">
-        <NuxtLink v-if="!item.external" :to="item.path">{{ item.label }}</NuxtLink>
-        <a v-else :href="item.path">{{ item.label }}</a>
+      <li class="menu-item" v-for="{href, label} in menuItems" :key="href">
+        <a :href>{{ label }}</a>
       </li>
     </ul>
   </div>
@@ -51,11 +49,11 @@ watch(() => route.path, () => {
 });
 
 const menuItems = [
-  { path: '/camp', label: 'Devops camp' },
-  { path: '/projects', label: 'Проекты' },
-  { path: '/join', label: 'Присоединяйся к нам' },
-  { path: '/team', label: 'Команда' },
-  { path: '#', label: 'Блог', external: true },
+  { href: '/camp', label: 'Devops camp' },
+  { href: '/projects', label: 'Проекты' },
+  { href: '/join', label: 'Присоединяйся к нам' },
+  { href: '/team', label: 'Команда' },
+  { href: '#', label: 'Блог' },
 ];
 
 </script>

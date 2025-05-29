@@ -6,11 +6,11 @@
 
     <div :class="$style.imageContainer">
       <NuxtImg
-        v-if="project.mainImage"
+        v-if="currentProject.mainImage"
         :class="$style.img"
-        :src="project.mainImage"
-        :alt="project.name"
-        :key="`${project.name}-head-image`"
+        :src="currentProject.mainImage"
+        :alt="currentProject.name"
+        :key="`${currentProject.name}-head-image`"
       ></NuxtImg>
     </div>
   </div>
@@ -18,10 +18,12 @@
 <script setup>
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 
-import { useProjectsStore } from '@/store/useProjects.js';
-import { storeToRefs } from 'pinia';
-
-const { currentProject: project } = storeToRefs(useProjectsStore());
+const props = defineProps({
+  currentProject: {
+    mainImage: String,
+    name: String,
+  }
+})
 
 const links = [
   {
@@ -29,7 +31,7 @@ const links = [
     path: '/projects',
   },
   {
-    name: project.value.name,
+    name: props.currentProject.name,
   },
 ];
 </script>

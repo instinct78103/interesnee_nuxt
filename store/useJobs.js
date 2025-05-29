@@ -56,16 +56,9 @@ export const useJobsStore = defineStore('jobs', () => {
       }));
   }
 
-  async function fetchJobs() {
-    const { data } = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU');
-    jobs.value = getOpenJobs(data);
-    cities.value = parseCites(jobs.value);
-  }
-
   return {
     allowedCities,
     cities,
-    fetchJobs,
     jobs,
   };
 });

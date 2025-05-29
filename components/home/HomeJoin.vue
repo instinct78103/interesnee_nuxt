@@ -52,7 +52,7 @@ const images = [
             Развивайся <br>
             Создавай
           </h2>
-          <NuxtLink :class="$style.button" to="/join">Присоединиться</NuxtLink>
+          <a :class="$style.button" href="/join">Присоединиться</a>
         </div>
         <div :class="$style.imgWrapper">
           <NuxtImg

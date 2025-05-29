@@ -14,10 +14,10 @@
 
         <ul :class="$style.techList">
           <li :class="$style.techItem" v-for="tech of techList" :key="tech.iconId">
-            <NuxtLink :class="$style.techInner" to="/join">
+            <a :class="$style.techInner" href="/join">
               <div :class="$style.icon" :style="{backgroundImage: `url(/icons/icon-${tech.iconId}.svg)`}"></div>
               <p :class="$style.techText">{{ tech.text }}</p>
-            </NuxtLink>
+            </a>
           </li>
         </ul>
       </div>
