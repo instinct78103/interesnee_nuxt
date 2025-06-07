@@ -35,7 +35,7 @@ defineProps({
 }
 
 .container {
-  width: min(100% - 40px, clamp(20ch, 690px, 30ch));
+  width: min(100% - 40px, 690px);
 }
 
 h1 {
