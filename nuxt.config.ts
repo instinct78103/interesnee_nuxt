@@ -1,21 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  hooks: {
-    async 'nitro:config'(nitroConfig) {
-      const res = await fetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU')
-      const data = await res.json()
-
-      const dynamicRoutes = data.map(
-          (item: { board_code: string }) => `/job/${item.board_code}`
-      )
-
-      nitroConfig.prerender = nitroConfig.prerender || {}
-      nitroConfig.prerender.routes = [
-        ...(nitroConfig.prerender.routes || []),
-        ...dynamicRoutes
-      ]
-    },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL
+    }
   },
   ssr: true,
   experimental: {
@@ -33,13 +22,6 @@ export default defineNuxtConfig({
     prefetchLinks: false
   },
   nitro: {
-    devProxy: {
-      '/wp-json': {
-        target: process.env.API_URL + '/wp-json',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
     prerender: {
       crawlLinks: true,
       routes: [],

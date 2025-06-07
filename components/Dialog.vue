@@ -19,7 +19,7 @@ defineExpose({
       <slot name="body"/>
     </div>
     <slot name="arrowRight"></slot>
-    <form method="dialog" class="modal-backdrop">
+    <form method="dialog" class="modal-backdrop" id="dialog">
       <button>Close</button>
     </form>
   </dialog>
@@ -122,7 +122,7 @@ dialog {
     overflow-x: auto;
     scrollbar-width: none;
     gap: 20px;
-    max-width: 767px;
+    width: min(767px, 100% - 20px);
     height: fit-content;
     overflow-y: hidden;
 

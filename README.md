@@ -24,6 +24,7 @@ docker run -it --rm \
   -v $(pwd)/.npm:/nuxt/.npm \
   -u $(id -u):$(id -g) \
   -e HOME=/nuxt \
+  -e API_BASE_URL=http://192.168.88.113:81 \
   --env TZ=$(cat /etc/timezone) \
   --name nuxt -w /nuxt -p 3000:3000 \
   node:22 npm run dev -- --host 0.0.0.0
@@ -35,6 +36,7 @@ docker run -it --rm \
 docker run -it --rm -e HOME=/nuxt \
   -v $(pwd):/nuxt \
   -u $(id -u):$(id -g) --name nuxt \
+  -e API_BASE_URL=http://192.168.88.113:81 \
   -w /nuxt \
   node:22 npm run generate
 ```
@@ -47,6 +49,8 @@ docker run --rm \
   -v $(pwd)/.nuxt:/var/lib/html/.nuxt:ro \
   -v $(pwd)/public:/var/lib/html/public:ro \
   -v $(pwd)/default.conf:/etc/nginx/conf.d/default.conf:ro \
+  -e API_URL=http://php_simple \
+  --network=interesnee_network \
   -p 80:80 \
   -w /var/lib/html \
   nginx

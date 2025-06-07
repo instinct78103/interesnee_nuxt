@@ -1,11 +1,12 @@
 <template>
   <section v-if="board">
-    <Hero kind="small">{{ board?.title.replace('(RU)', '') }}</Hero>
+    <Hero kind="small">{{ board?.title }}</Hero>
     <div :class="$style.root">
       <div :class="$style.container">
         <div v-html="board.description" :class="$style.content"></div>
       </div>
     </div>
+    <BaseForm></BaseForm>
   </section>
 </template>
 
@@ -14,6 +15,7 @@ useHead({title: 'Очень Интересно - Вакансия'});
 
 import {ref} from "vue";
 import Hero from "~/components/Hero.vue";
+import BaseForm from "~/components/BaseForm.vue";
 
 const route = useRoute()
 
@@ -41,7 +43,7 @@ const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJ
         && !deprecatedJobs.includes(job.title))
 
     // Reduce each item to only the two needed props
-    return filtered.map(({board_code, description, title}) => ({board_code, description, title}))
+    return filtered.map(({board_code, description, title}) => ({board_code, description, title: title.replace('(RU)', '')}))
   }
 })
 
@@ -49,7 +51,7 @@ const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJ
 const board = computed(() => data.value.find(item => item.board_code === route.params.code))
 
 if (!board.value) {
-  throw createError({statusCode: 404, statusMessage: 'Board not found'})
+  throw createError({statusCode: 404, statusMessage: 'Code not found'})
 }
 </script>
 

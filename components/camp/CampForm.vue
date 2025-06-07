@@ -26,7 +26,7 @@
         bg-color="#fff"
         title="Отправить заявку"
         file-title="Прикрепить резюме"
-        namePostfix=" - Практикант"
+        namePostfix="- Практикант"
         text-area-placeholder="Или напишите текст здесь"
       />
     </template>

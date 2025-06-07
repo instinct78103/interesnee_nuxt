@@ -91,6 +91,14 @@
                         }
                     }
 
+                    > a {
+                        @media (width < 768px) {
+                            display: block;
+                            width: 50cqi;
+                            margin-inline: auto;
+                        }
+                    }
+
                     a {
                         color: #fff;
                         font-size: 14px;
@@ -98,25 +106,8 @@
 
                     .flag {
                         display: inline-block;
-                        //width: 25px;
-                        //height: 15px;
-                        //background-repeat: no-repeat;
-                        //background-size: contain;
                         margin: 0 10px 0 0;
                         padding: 0;
-
-                        //$flags: (
-                        //    ru,
-                        //    vn,
-                        //    kz,
-                        //    //us
-                        //);
-                        //
-                        //@each $name in $flags {
-                        //    &.#{$name} {
-                        //        background-image: url(https://blog.interesnee.ru/wp-content/themes/interesnee/project/assets/icons/flag-#{$name}.svg);
-                        //    }
-                        //}
                     }
                 }
             }

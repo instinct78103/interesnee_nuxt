@@ -4,22 +4,21 @@
 
   <section :class="$style.container">
     <h2 :class="$style.heading">Карьера</h2>
-    <ul :class="$style.buttonsList" v-if="data.cities.length">
+    <ul :class="$style.buttonsList">
       <li v-for="city in data.cities" :key="city.url">
         <NuxtLink
             :to="{ path: '/join', query: { city: city.url }}"
-            :class="[$style.button, {[$style.buttonActive]: currentCity === city.url }, 'hover-scale']"
+            :class="[$style.button, {[$style.buttonActive]: currentCity === city.url && isClient === true }, 'hover-scale']"
         >
           {{ city.nameRU }}
         </NuxtLink>
       </li>
     </ul>
-
     <ul :class="$style.list">
       <li v-for="{ board_code, status, title } in jobsByUrl" :key="board_code" :class="$style.listItem">
         <div :class="[ $style.item, { [$style.closed]: status === 'Closed' } ]">
           <NuxtLink external :to="`/job/${board_code}`" :class="$style.link">
-            <div :class="$style.title">{{ title?.replace('(RU)', '') }}</div>
+            <span :class="$style.title">{{ title }}</span>
           </NuxtLink>
         </div>
       </li>
@@ -35,6 +34,9 @@ useHead({ title: `${SITE_NAME} - Присоединяйся`, });
 
 import Hero from '@/components/Hero.vue';
 import OurHRs from '@/components/OurHRs.vue';
+
+const currentCity = computed(() => useRoute()?.query?.city || 'ekaterinburg');
+const isClient = ref(false);
 
 const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU', {
   server: true,
@@ -96,14 +98,15 @@ const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJ
     )
 
     return {
-      jobs: getOpenJobs.map(({board_code, title, city, status}) => ({board_code, title, city, status})),
+      jobs: getOpenJobs.map(({board_code, title, city, status}) => ({board_code, title: title.replace('(RU)', ''), city, status})),
       cities: parseCites(getOpenJobs)
     }
   }
 })
 
-const route = useRoute();
-const currentCity = computed(() => route.query.city || 'ekaterinburg');
+onMounted(() => {
+  isClient.value = true;
+})
 
 const jobsByUrl = computed(() => {
   return data.value.jobs.filter(job => job.city.toLowerCase().includes(currentCity.value.toLowerCase()));
