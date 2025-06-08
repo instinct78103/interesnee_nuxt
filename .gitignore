@@ -18,6 +18,7 @@ logs
 .DS_Store
 .fleet
 .idea
+.bash_history
 
 # Local env files
 .env
