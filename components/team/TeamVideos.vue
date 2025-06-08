@@ -127,10 +127,9 @@ function stopVideos() {
 }
 
 .photo {
-  display: grid;
+  display: inline-grid;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   overflow: hidden;
   margin: 0;
   object-fit: fill;
