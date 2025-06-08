@@ -341,7 +341,7 @@ const isVacancyValid = computed(() => form.vacancy.value !== '' || props.select)
 const isSelectedCityValid = computed(() => form.selectedCity.value !== '' || !props.showCampCity);
 const isCampCityValid = computed(() => form.campCity.value !== '' || isSelectedCityValid.value);
 
-const isStudyValid = computed(() => form.study.value !== '' || (form.selectedStudy.value && form.selectedStudy.value !== 'other'));
+const isStudyValid = computed(() => !props.showCampCity || form.study.value !== '' || (form.selectedStudy.value && form.selectedStudy.value !== 'other'));
 const isPersonalDataValid = computed(() => form.personalData.value === true)
 const isRecaptchaValid = computed(() => form.recaptcha.value === true)
 
