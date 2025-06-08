@@ -49,8 +49,6 @@ docker run --rm \
   -v $(pwd)/.nuxt:/var/lib/html/.nuxt:ro \
   -v $(pwd)/public:/var/lib/html/public:ro \
   -v $(pwd)/default.conf:/etc/nginx/conf.d/default.conf:ro \
-  -e API_URL=http://php_simple \
-  --network=interesnee_network \
   -p 80:80 \
   -w /var/lib/html \
   nginx
