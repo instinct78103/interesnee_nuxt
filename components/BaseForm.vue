@@ -199,37 +199,13 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import {useJobsStore} from "~/store/useJobs.js";
+import {storeToRefs} from "pinia";
 import { mask } from 'vue-the-mask';
 const vMask = mask;
 import ContactsListBlock from '@/components/ContactsListBlock.vue';
 
-const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU', {
-  server: true,
-  lazy: false,
-  default: () => [],
-  transform: (items) => {
-    const allowedCities = ['ekaterinburg', 'krasnoyarsk', 'sochi'];
-
-    const deprecatedJobs = [
-      'Accountant (RU)',
-      'Frontend developer - HTML/CSS/JS (RU)',
-      'Frontend developer - HTML/CSS/JS (part time) (RU)',
-      'JS - Frontend developer Junior (RU)',
-      'QA Engineer (auto) (RU)',
-      'Unreal Engine developer (RU)',
-    ];
-
-    const getOpenJobs = items.filter(job => !job.internal_code.endsWith('_hidden')
-        && job.country_id === 'Russian Federation'
-        && !deprecatedJobs.includes(job.title)
-        && allowedCities.some(city => job.city.toLowerCase().includes(city))
-    )
-
-    return getOpenJobs.map(({id, board_code, title, city, status}) => ({id, board_code, title: title.replace(' (RU)', ''), city, status}));
-  }
-})
-
-const jobs = computed(() => data.value)
+const { jobs } = storeToRefs(useJobsStore());
 
 const dialogResponse = ref(null);
 const showModal = () => dialogResponse?.value?.showModal();

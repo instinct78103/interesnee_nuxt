@@ -1,59 +1,76 @@
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useJobsStore } from '~/store/useJobs.js';
+import { computed, ref } from 'vue';
+import Hero from '~/components/Hero.vue';
+
+const job = ref([]);
+
+/**
+ * Custom directive -- start
+ */
+const vCleanHtml = {
+  mounted(el, binding) {
+    el.innerHTML = binding.value;
+    sanitizeHtml(el);
+  },
+  updated(el, binding) {
+    el.innerHTML = binding.value;
+    sanitizeHtml(el);
+  },
+};
+
+function sanitizeHtml(container) {
+  container.querySelectorAll('*').forEach(el => {
+    // remove all attributes
+    [...el.attributes].forEach(attr => el.removeAttribute(attr.name));
+
+    //remove &nbsp
+    if (el.innerHTML) {
+      el.innerHTML = el.innerHTML.replace(/&nbsp;/g, '');
+    }
+  });
+}
+/**
+ * Custom directive -- end
+ */
+
+useHead({ title: 'Очень Интересно - Вакансия', });
+
+// import BaseForm from '@/components/BaseForm.vue';
+const { jobs } = storeToRefs(useJobsStore());
+
+function filterJob(boardCode) {
+  const currentJob = jobs.value.find(job => job.board_code === boardCode);
+
+  job.value = currentJob;
+
+  return currentJob;
+}
+
+const filteredJob = computed(() => {
+  if (jobs.value.length === 0) {
+    return false;
+  }
+
+  const currentJobBoardCode = useRoute().params.code;
+
+  return filterJob(currentJobBoardCode);
+});
+
+</script>
+
 <template>
-  <section v-if="board">
-    <Hero kind="small">{{ board?.title }}</Hero>
+  <section v-if="filteredJob">
+    <Hero kind="small">{{ filteredJob?.title.replace('(RU)', '') }}</Hero>
     <div :class="$style.root">
       <div :class="$style.container">
-        <div v-html="board.description" :class="$style.content"></div>
+        <div v-clean-html="filteredJob.description" :class="$style.content"></div>
       </div>
     </div>
-    <BaseForm></BaseForm>
   </section>
+  <BaseForm></BaseForm>
 </template>
-
-<script setup>
-useHead({title: 'Очень Интересно - Вакансия'});
-
-import {ref} from "vue";
-import Hero from "~/components/Hero.vue";
-import BaseForm from "~/components/BaseForm.vue";
-
-const route = useRoute()
-
-// Always fetch on server side and never re-fetch on client
-const {data} = await useFetch('https://api.resumatorapi.com/v1/jobs?apikey=4tWhJFtr8iWAl3VHxRc8HVIk0dSZEOBU', {
-  server: true,
-  lazy: false,
-  default: () => [],
-  transform: (items) => {
-
-    const allowedCities = ref(['ekaterinburg', 'krasnoyarsk', 'sochi']);
-
-    const deprecatedJobs = [
-      'Unreal Engine developer (RU)',
-      'QA Engineer (auto) (RU)',
-      'JS - Frontend developer Junior (RU)',
-      'Accountant (RU)',
-      'Frontend developer - HTML/CSS/JS (RU)',
-      'Frontend developer - HTML/CSS/JS (part time) (RU)',
-    ];
-
-
-    const filtered = items.filter(job => !job.internal_code.endsWith('_hidden')
-        && job.country_id === 'Russian Federation'
-        && !deprecatedJobs.includes(job.title))
-
-    // Reduce each item to only the two needed props
-    return filtered.map(({board_code, description, title}) => ({board_code, description, title: title.replace('(RU)', '')}))
-  }
-})
-
-// `data` is a ref — extract synchronously
-const board = computed(() => data.value.find(item => item.board_code === route.params.code))
-
-if (!board.value) {
-  throw createError({statusCode: 404, statusMessage: 'Code not found'})
-}
-</script>
 
 <style lang="scss" module>
 .container {
@@ -68,7 +85,12 @@ if (!board.value) {
   gap: 10px;
   padding-block: 10px 0;
 
-  p:empty {
+  :is(:where(p, h2) strong, h2) {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  :is(br, p:empty) {
     display: none;
   }
 
@@ -81,25 +103,4 @@ if (!board.value) {
     }
   }
 }
-
-.slide-top-enter-active {
-  transition: transform 0.3s ease-out, opacity 0.5s ease-out;
-}
-
-.slide-top-leave-active {
-  transition: transform 0.3s ease-out;
-}
-
-.slide-top-enter-from,
-.slide-top-leave-to {
-  transform: translateY(-30px);
-  opacity: 0;
-}
-
-.slide-top-leave-from,
-.slide-top-enter-to {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 </style>
