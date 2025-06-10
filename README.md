@@ -16,7 +16,9 @@ docker run -it --rm \
 
 ## Development Server
 
-Start the development server on `http://0.0.0.0:3000`:
+Start the development server on `http://0.0.0.0:3000` 
+
+API_BASE_URL — the PHP endpoint that handles form submissions:
 
 ```bash
 docker run -it --rm \
